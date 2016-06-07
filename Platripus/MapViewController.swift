@@ -1,9 +1,9 @@
 //
 //  MapViewController.swift
-//  SidebarMenu
+//  Platripus
 //
-//  Created by Simon Ng on 2/2/15.
-//  Copyright (c) 2015 AppCoda. All rights reserved.
+//  Created by Thien Tran on 6/7/16.
+//  Copyright © 2016 NVC_2016. All rights reserved.
 //
 
 import UIKit
