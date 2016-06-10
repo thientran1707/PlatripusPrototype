@@ -21,7 +21,7 @@
                     </view>
                     <connections>
                         <segue destination="c8U-hf-vWv" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="jNl-dZ-ht5"/>
-                        <segue destination="dXH-rC-dKS" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="tWZ-CD-OTO"/>
+                        <segue destination="Vyx-wI-D8s" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="AVl-c6-5UF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -191,27 +191,27 @@
                         <sections>
                             <tableViewSection id="uba-LA-EjJ">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ndk-jA-avy">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ipm-lo-Rhq">
                                         <rect key="frame" x="0.0" y="96" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ndk-jA-avy" id="2Mc-1j-0ud">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ipm-lo-Rhq" id="7dD-hv-uSA">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upcoming Trips" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-5S-TMf">
-                                                    <rect key="frame" x="61" y="11" width="154" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="kDh-wy-A4b">
+                                                    <rect key="frame" x="22" y="8" width="25" height="25"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSX-WA-VJD">
+                                                    <rect key="frame" x="61" y="6" width="144" height="31"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="upcoming" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-me-joh">
-                                                    <rect key="frame" x="21" y="10" width="25" height="24"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.94085192680358887" green="0.94903725385665894" blue="0.95307987928390503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="dXH-rC-dKS" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="foL-zu-uHU"/>
+                                            <segue destination="Vyx-wI-D8s" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Zw8-Xd-2Hu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dcS-Um-JRf">
@@ -237,8 +237,31 @@
                                             <segue destination="YST-2z-g0L" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Y80-0G-iRU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fyu-8k-lj0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ndk-jA-avy">
                                         <rect key="frame" x="0.0" y="184" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ndk-jA-avy" id="2Mc-1j-0ud">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="upcoming" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-me-joh">
+                                                    <rect key="frame" x="21" y="10" width="25" height="24"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upcoming Trips" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-5S-TMf">
+                                                    <rect key="frame" x="60" y="5" width="154" height="33"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94085192680358887" green="0.94903725385665894" blue="0.95307987928390503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="dXH-rC-dKS" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="foL-zu-uHU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fyu-8k-lj0">
+                                        <rect key="frame" x="0.0" y="228" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fyu-8k-lj0" id="T53-k8-WHP">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -261,7 +284,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="l5p-Px-J3y">
-                                        <rect key="frame" x="0.0" y="228" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="272" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l5p-Px-J3y" id="som-al-42w">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -281,29 +304,6 @@
                                         <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="wJC-Ji-7j4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="azL-TC-FC0"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ipm-lo-Rhq">
-                                        <rect key="frame" x="0.0" y="272" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ipm-lo-Rhq" id="7dD-hv-uSA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="explore" translatesAutoresizingMaskIntoConstraints="NO" id="kDh-wy-A4b">
-                                                    <rect key="frame" x="22" y="8" width="25" height="25"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Explore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSX-WA-VJD">
-                                                    <rect key="frame" x="61" y="6" width="144" height="31"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="Vyx-wI-D8s" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Zw8-Xd-2Hu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rjC-LT-MBj">
@@ -371,7 +371,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </mapView>
             </objects>
-            <point key="canvasLocation" x="950" y="44"/>
+            <point key="canvasLocation" x="1194" y="186"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a23-LC-1XJ">
@@ -475,7 +475,7 @@
             </objects>
             <point key="canvasLocation" x="2504" y="1555"/>
         </scene>
-        <!--Explore-->
+        <!--Home-->
         <scene sceneID="jv1-3m-qx6">
             <objects>
                 <viewController id="t3j-eC-F7J" customClass="ExploreViewController" customModule="Platripus" customModuleProvider="target" sceneMemberID="viewController">
@@ -486,9 +486,17 @@
                     <view key="view" contentMode="scaleToFill" id="ZZC-6a-8fu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-f1-HLe">
+                                <rect key="frame" x="279" y="130" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Explore" id="YLX-HZ-6J0">
+                    <navigationItem key="navigationItem" title="Home" id="YLX-HZ-6J0">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="uLc-6z-Jsg"/>
                     </navigationItem>
                     <connections>
@@ -497,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxY-wv-vVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2516" y="2458"/>
+            <point key="canvasLocation" x="2583" y="2464"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="55X-fW-kTS">
@@ -617,13 +625,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5e6-Fa-yz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="2263"/>
+            <point key="canvasLocation" x="786" y="337"/>
         </scene>
     </scenes>
     <resources>
         <image name="author" width="200" height="200"/>
         <image name="current" width="50" height="50"/>
-        <image name="explore" width="50" height="50"/>
+        <image name="home" width="50" height="50"/>
         <image name="menu" width="22" height="22"/>
         <image name="news" width="50" height="50"/>
         <image name="noti" width="50" height="50"/>
@@ -632,7 +640,7 @@
         <image name="upcoming" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="foL-zu-uHU"/>
+        <segue reference="AVl-c6-5UF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
 </document>
