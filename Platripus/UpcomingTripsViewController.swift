@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsTableViewController: UITableViewController {
+class UpcomingTripsViewController: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
 
     override func viewDidLoad() {
@@ -19,8 +19,6 @@ class NewsTableViewController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
 
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-        
         }
     }
 
@@ -43,7 +41,7 @@ class NewsTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UpcomingTripsViewCell
 
         // Configure the cell...
         if indexPath.row == 0 {

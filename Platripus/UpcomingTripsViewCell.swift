@@ -1,5 +1,5 @@
 //
-//  NewsTableViewCell.swift
+//  UpcomingTripsViewCell.swift
 //  Platripus
 //
 //  Created by Thien Tran on 6/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsTableViewCell: UITableViewCell {
+class UpcomingTripsViewCell: UITableViewCell {
     
     @IBOutlet weak var postImageView:UIImageView!
     @IBOutlet weak var authorImageView:UIImageView!
