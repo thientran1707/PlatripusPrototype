@@ -10,8 +10,21 @@ import UIKit
 
 class MenuController: UITableViewController {
 
+    @IBOutlet weak var avatar: UIImageView!
+
+    @IBOutlet weak var header: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // make avatar round
+        avatar.layer.cornerRadius = avatar.frame.size.width / 2
+        avatar.clipsToBounds = true
+        
+        avatar.layer.borderWidth = 2.0
+        avatar.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        header.layer.backgroundColor = UIColor(hex: 0xEC2C43).CGColor
     }
 
     override func didReceiveMemoryWarning() {

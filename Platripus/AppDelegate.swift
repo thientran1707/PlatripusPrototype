@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // customize navigtion bar background color to Plantripus theme #0xEC2C43
+        UINavigationBar.appearance().barTintColor = UIColor(hex: 0xEC2C43)
+        UINavigationBar.appearance().opaque = true
+        
+        // customize navigation bar text color to white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         return true
     }
 
