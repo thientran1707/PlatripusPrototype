@@ -71,6 +71,10 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         detailView.layer.shadowOffset = CGSize.zero;
         detailView.layer.shadowRadius = 4.0;
         
+        // prepare tap gesture recognizer to close the detailView
+        let tgr = UITapGestureRecognizer(target: self, action: "bringDownDetailView")
+        mapView.addGestureRecognizer(tgr)
+        
         // set initial location in Honolulu
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         centerMapOnLocation(initialLocation)
@@ -119,13 +123,20 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     
     func bringUpDetailView() {
         let newHeight = self.view.frame.size.height * 0.6
-        UIView.animateWithDuration(0.1) {
-            self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
+        if (self.detailView.frame.size.height < newHeight) {
+            UIView.animateWithDuration(0.2) {
+                self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
+            }
         }
     }
     
     func bringDownDetailView() {
-        let newHeight = 62
+        let newHeight = 62 as CGFloat
+        if (self.detailView.frame.size.height > newHeight) {
+            UIView.animateWithDuration(0.2) {
+                self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
+            }
+        }
     }
     
     // location methods

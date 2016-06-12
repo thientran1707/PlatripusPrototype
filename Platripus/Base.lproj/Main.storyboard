@@ -110,8 +110,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GLp-rp-ryS" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="bottom" constant="70" id="0Nz-eA-xbh"/>
-                            <constraint firstItem="7Lv-tj-SaS" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="bottom" constant="8" id="0dN-lm-UEb"/>
+                            <constraint firstItem="GLp-rp-ryS" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="bottom" priority="750" constant="70" id="0Nz-eA-xbh"/>
+                            <constraint firstItem="7Lv-tj-SaS" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="bottom" priority="750" constant="8" id="0dN-lm-UEb"/>
                             <constraint firstItem="Cxc-8k-dkD" firstAttribute="leading" secondItem="ftJ-N6-t2w" secondAttribute="leading" id="4B9-Rb-EkQ"/>
                             <constraint firstItem="ftJ-N6-t2w" firstAttribute="leading" secondItem="HE4-02-mb0" secondAttribute="leadingMargin" constant="20" id="4Zp-s2-1GB"/>
                             <constraint firstItem="ftJ-N6-t2w" firstAttribute="top" secondItem="1V6-Hn-ruu" secondAttribute="bottom" constant="13" id="EUi-fs-rx8"/>
