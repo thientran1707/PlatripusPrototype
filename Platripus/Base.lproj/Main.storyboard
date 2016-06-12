@@ -493,7 +493,18 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kyn-at-pnj">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="b2K-u9-yjk">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="2hX-GX-fgW"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="b2K-u9-yjk" firstAttribute="width" secondItem="Kyn-at-pnj" secondAttribute="width" id="XfA-fA-Hgm"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -658,6 +669,7 @@
         <image name="past" width="50" height="50"/>
         <image name="setting" width="50" height="50"/>
         <image name="upcoming" width="50" height="50"/>
+        <image name="welcome" width="691" height="609"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AVl-c6-5UF"/>
