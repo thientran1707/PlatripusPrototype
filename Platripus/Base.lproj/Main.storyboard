@@ -86,10 +86,32 @@
                                 <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                 <state key="normal" image="mapTarget"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lv-tj-SaS">
+                                <rect key="frame" x="0.0" y="538" width="600" height="62"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a pin to view more info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTE-9e-n4Z">
+                                        <rect key="frame" x="20" y="8" width="560" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Qdd-0v-Ii3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pTE-9e-n4Z" firstAttribute="leading" secondItem="7Lv-tj-SaS" secondAttribute="leading" constant="20" id="86c-d2-jiz"/>
+                                    <constraint firstItem="pTE-9e-n4Z" firstAttribute="top" secondItem="7Lv-tj-SaS" secondAttribute="top" constant="8" id="BXM-wn-WSj"/>
+                                    <constraint firstAttribute="trailing" secondItem="pTE-9e-n4Z" secondAttribute="trailing" constant="20" id="CNU-jN-6V7"/>
+                                    <constraint firstAttribute="bottom" secondItem="pTE-9e-n4Z" secondAttribute="bottom" constant="8" id="jI0-TQ-vti"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GLp-rp-ryS" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="bottom" constant="70" id="0Nz-eA-xbh"/>
+                            <constraint firstItem="7Lv-tj-SaS" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="bottom" constant="8" id="0dN-lm-UEb"/>
                             <constraint firstItem="Cxc-8k-dkD" firstAttribute="leading" secondItem="ftJ-N6-t2w" secondAttribute="leading" id="4B9-Rb-EkQ"/>
                             <constraint firstItem="ftJ-N6-t2w" firstAttribute="leading" secondItem="HE4-02-mb0" secondAttribute="leadingMargin" constant="20" id="4Zp-s2-1GB"/>
                             <constraint firstItem="ftJ-N6-t2w" firstAttribute="top" secondItem="1V6-Hn-ruu" secondAttribute="bottom" constant="13" id="EUi-fs-rx8"/>
@@ -105,11 +127,14 @@
                             <constraint firstItem="nsc-35-MTe" firstAttribute="top" secondItem="HE4-02-mb0" secondAttribute="top" id="b27-P5-1ug"/>
                             <constraint firstItem="1s2-VW-T4n" firstAttribute="top" secondItem="eTu-DU-HR8" secondAttribute="bottom" constant="20" id="baQ-a7-BRr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1s2-VW-T4n" secondAttribute="trailing" constant="10" id="be8-vn-Wmw"/>
+                            <constraint firstItem="7Lv-tj-SaS" firstAttribute="leading" secondItem="HE4-02-mb0" secondAttribute="leadingMargin" constant="-20" id="dAy-3s-DQo"/>
                             <constraint firstItem="Cxc-8k-dkD" firstAttribute="top" secondItem="ftJ-N6-t2w" secondAttribute="top" id="dhK-dF-UHo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Lv-tj-SaS" secondAttribute="trailing" constant="-20" id="kdx-0Y-zML"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ftJ-N6-t2w" secondAttribute="trailing" constant="19" id="lE2-Y5-n4m"/>
                             <constraint firstItem="Cxc-8k-dkD" firstAttribute="trailing" secondItem="ftJ-N6-t2w" secondAttribute="trailing" id="nL0-4M-H8j"/>
                             <constraint firstItem="mmX-dp-Rrl" firstAttribute="trailing" secondItem="xqH-66-tMi" secondAttribute="trailing" id="qdK-wo-VhT"/>
                             <constraint firstItem="nsc-35-MTe" firstAttribute="bottom" secondItem="GLp-rp-ryS" secondAttribute="top" id="qxz-OC-NpC"/>
+                            <constraint firstItem="GLp-rp-ryS" firstAttribute="top" secondItem="7Lv-tj-SaS" secondAttribute="bottom" id="rOp-NE-Iy5"/>
                             <constraint firstItem="mmX-dp-Rrl" firstAttribute="leading" secondItem="eTu-DU-HR8" secondAttribute="leading" id="rbJ-In-euh"/>
                             <constraint firstItem="ftJ-N6-t2w" firstAttribute="centerX" secondItem="nsc-35-MTe" secondAttribute="centerX" id="xgx-Zr-YeU"/>
                         </constraints>
@@ -120,6 +145,7 @@
                     <connections>
                         <outlet property="currLocButton" destination="eTu-DU-HR8" id="C3g-GX-arh"/>
                         <outlet property="currLocButtonShadow" destination="mmX-dp-Rrl" id="hH3-9a-Zlu"/>
+                        <outlet property="detailView" destination="7Lv-tj-SaS" id="cTt-uo-QlV"/>
                         <outlet property="locationLabel" destination="ftJ-N6-t2w" id="2oV-go-cyb"/>
                         <outlet property="locationLabelShadow" destination="Cxc-8k-dkD" id="ZvT-ML-WHo"/>
                         <outlet property="mapView" destination="nsc-35-MTe" id="qu1-t0-yYo"/>

@@ -19,6 +19,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var navButtonShadow: UIView!
     @IBOutlet weak var currLocButtonShadow: UIView!
     @IBOutlet weak var locationLabelShadow: UIView!
+    @IBOutlet weak var detailView: UIView!
+
     var locationManager: CLLocationManager!
 
     var locationTuples: [(textField: UITextField!, mapItem: MKMapItem?)]!
@@ -58,11 +60,16 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         navigateToButton.addTarget(self, action: "navigateTo", forControlEvents: .TouchUpInside);
         
         /** Shadow */
-        navButtonShadow.layer.cornerRadius = navButtonShadow.frame.size.width/2.0;
         navButtonShadow.layer.shadowColor = UIColor.blackColor().CGColor;
         navButtonShadow.layer.shadowOpacity = 0.6;
         navButtonShadow.layer.shadowOffset = CGSize.zero;
         navButtonShadow.layer.shadowRadius = 3.0;
+        
+        // setup detailView
+        detailView.layer.shadowColor = UIColor.blackColor().CGColor;
+        detailView.layer.shadowOpacity = 0.6;
+        detailView.layer.shadowOffset = CGSize.zero;
+        detailView.layer.shadowRadius = 4.0;
         
         // set initial location in Honolulu
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
@@ -106,6 +113,19 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     
     func navigateTo() {
         NSLog("navigation");
+    }
+    
+    // view helper methods
+    
+    func bringUpDetailView() {
+        let newHeight = self.view.frame.size.height * 0.6
+        UIView.animateWithDuration(0.1) {
+            self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
+        }
+    }
+    
+    func bringDownDetailView() {
+        let newHeight = 62
     }
     
     // location methods

@@ -26,6 +26,8 @@ extension CurrentTripViewController: MKMapViewDelegate {
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.pinTintColor = UIColor.blueColor();
+                let tgr = UITapGestureRecognizer(target: self, action: "bringUpDetailView");
+                view.addGestureRecognizer(tgr);
 //                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as! UIView
             }
             return view
