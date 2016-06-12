@@ -117,7 +117,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         
         helloText.userInteractionEnabled = false
         selectionView.layer.borderWidth = 1
-        selectionView.layer.borderColor = UIColor.redColor().CGColor
+        selectionView.layer.borderColor = UIColor.grayColor().CGColor
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
