@@ -25,6 +25,7 @@ extension CurrentTripViewController: MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.pinTintColor = UIColor.blueColor();
 //                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as! UIView
             }
             return view

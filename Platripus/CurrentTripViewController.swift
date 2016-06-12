@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class CurrentTripViewController: UIViewController {
+class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var menuButton:UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navigateToButton: UIButton!
@@ -81,9 +81,7 @@ class CurrentTripViewController: UIViewController {
         mapView.addAnnotation(place)
         
         // request for map authorization
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
-            CLLocationManager().requestWhenInUseAuthorization();
-        }
+        self.startStandardUpdates();
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,11 +97,49 @@ class CurrentTripViewController: UIViewController {
     }
     
     func seekToCurrentLocation() {
+        locationManager.requestLocation();
+
         NSLog("asdf");
     }
     
     func navigateTo() {
         NSLog("navigation");
+    }
+    
+    func startStandardUpdates() {
+    // Create the location manager if this object does not
+    // already have one.
+        if (locationManager == nil) {
+            locationManager = CLLocationManager();
+        }
+    
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+        // Set a movement threshold for new events.
+        locationManager.distanceFilter = 500; // meters
+    
+//        if CLLocationManager.authorizationStatus() == .NotDetermined {
+//            locationManager.requestWhenInUseAuthorization();
+        locationManager.requestAlwaysAuthorization();
+//        }
+        
+        locationManager.startUpdatingLocation();
+    }
+    
+    // CLLocationmanager delegate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last! as CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        self.mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation();
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        NSLog("error: %@", error);
     }
 
 }
