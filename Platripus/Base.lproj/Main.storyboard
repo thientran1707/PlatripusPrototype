@@ -556,84 +556,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se7-0n-LyH">
-                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se7-0n-LyH">
+                                <rect key="frame" x="0.0" y="49" width="605" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kyn-at-pnj">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="750"/>
+                                        <rect key="frame" x="0.0" y="15" width="610" height="750"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="b2K-u9-yjk">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                                <rect key="frame" x="0.0" y="-10" width="600" height="310"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="2hX-GX-fgW"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEr-B4-BOj">
-                                                <rect key="frame" x="8" y="315" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hi Bryan Robertson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEr-B4-BOj">
+                                                <rect key="frame" x="8" y="315" width="306" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W1T-sb-sxt">
-                                                <rect key="frame" x="8" y="344" width="240" height="63"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Tell us about yourself and your trip preferences. We plan, you travel!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W1T-sb-sxt">
+                                                <rect key="frame" x="8" y="344" width="568" height="63"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HjY-uE-ZgC">
-                                                <rect key="frame" x="0.0" y="422" width="584" height="317"/>
+                                                <rect key="frame" x="0.0" y="425" width="584" height="317"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-87-6D5">
-                                                        <rect key="frame" x="15" y="19" width="42" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-87-6D5">
+                                                        <rect key="frame" x="15" y="19" width="70" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qF-4w-gpY">
-                                                        <rect key="frame" x="93" y="15" width="483" height="30"/>
+                                                        <rect key="frame" x="99" y="15" width="477" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNb-8p-8Mw">
-                                                        <rect key="frame" x="15" y="67" width="42" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNb-8p-8Mw">
+                                                        <rect key="frame" x="15" y="67" width="80" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Fz-ag-8Bf">
-                                                        <rect key="frame" x="93" y="63" width="483" height="30"/>
+                                                        <rect key="frame" x="99" y="63" width="477" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="startDate:" destination="t3j-eC-F7J" eventType="editingDidBegin" id="GdH-Vv-c3z"/>
+                                                        </connections>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-Hq-IJC">
-                                                        <rect key="frame" x="15" y="114" width="42" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-Hq-IJC">
+                                                        <rect key="frame" x="15" y="114" width="70" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-3I-Kd9">
-                                                        <rect key="frame" x="93" y="111" width="483" height="30"/>
+                                                        <rect key="frame" x="99" y="111" width="477" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="endDate:" destination="t3j-eC-F7J" eventType="editingDidBegin" id="3W4-XY-CGZ"/>
+                                                        </connections>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKU-kh-dMc">
-                                                        <rect key="frame" x="15" y="160" width="42" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Travellers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKU-kh-dMc">
+                                                        <rect key="frame" x="15" y="150" width="89" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5P-hn-Xi5">
-                                                        <rect key="frame" x="93" y="156" width="483" height="30"/>
+                                                        <rect key="frame" x="99" y="156" width="477" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pu0-fI-xpS">
-                                                        <rect key="frame" x="93" y="201" width="483" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VW1-Wd-VhX">
-                                                        <rect key="frame" x="15" y="204" width="42" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VW1-Wd-VhX">
+                                                        <rect key="frame" x="15" y="204" width="75" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -648,6 +650,11 @@
                                                             <segue destination="oR6-Gz-Hyh" kind="show" id="RK3-jv-jCD"/>
                                                         </connections>
                                                     </button>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pu0-fI-xpS">
+                                                        <rect key="frame" x="99" y="201" width="477" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -672,8 +679,9 @@
                                             <constraint firstItem="HjY-uE-ZgC" firstAttribute="leading" secondItem="Kyn-at-pnj" secondAttribute="leading" constant="10" id="MR2-a5-I0O"/>
                                             <constraint firstItem="LEr-B4-BOj" firstAttribute="leading" secondItem="Kyn-at-pnj" secondAttribute="leading" constant="10" id="WmW-JC-MQ4"/>
                                             <constraint firstItem="b2K-u9-yjk" firstAttribute="width" secondItem="Kyn-at-pnj" secondAttribute="width" id="XfA-fA-Hgm"/>
+                                            <constraint firstAttribute="trailing" secondItem="W1T-sb-sxt" secondAttribute="trailing" constant="10" id="kt4-dV-VeW"/>
+                                            <constraint firstItem="W1T-sb-sxt" firstAttribute="leading" secondItem="Kyn-at-pnj" secondAttribute="leading" constant="6" id="rNP-R5-Gpv"/>
                                             <constraint firstItem="LEr-B4-BOj" firstAttribute="top" secondItem="b2K-u9-yjk" secondAttribute="bottom" id="uM6-FN-4Tu"/>
-                                            <constraint firstItem="W1T-sb-sxt" firstAttribute="leading" secondItem="Kyn-at-pnj" secondAttribute="leading" constant="6" id="x6e-GL-xxV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -689,7 +697,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="se7-0n-LyH" firstAttribute="width" secondItem="ZZC-6a-8fu" secondAttribute="width" id="AGV-YB-KZP"/>
-                            <constraint firstItem="se7-0n-LyH" firstAttribute="top" secondItem="4ec-SP-rf0" secondAttribute="bottom" id="BDR-dJ-EIj"/>
+                            <constraint firstItem="se7-0n-LyH" firstAttribute="top" secondItem="4ec-SP-rf0" secondAttribute="bottom" constant="-15" id="BDR-dJ-EIj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="se7-0n-LyH" secondAttribute="trailing" constant="-20" id="VJd-Z8-lAz"/>
                             <constraint firstItem="pbM-tC-YnB" firstAttribute="top" secondItem="se7-0n-LyH" secondAttribute="bottom" id="Ykv-lu-74R"/>
                             <constraint firstItem="se7-0n-LyH" firstAttribute="width" secondItem="ZZC-6a-8fu" secondAttribute="width" id="cao-ba-UGY"/>
@@ -702,9 +710,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1000"/>
                     <connections>
+                        <outlet property="budget" destination="Pu0-fI-xpS" id="dUe-iE-UgR"/>
+                        <outlet property="endDate" destination="eu6-3I-Kd9" id="nEP-y6-Kkv"/>
                         <outlet property="helloText" destination="W1T-sb-sxt" id="Eox-4M-Epf"/>
+                        <outlet property="location" destination="7qF-4w-gpY" id="9bL-Yg-VbU"/>
                         <outlet property="menuButton" destination="uLc-6z-Jsg" id="brV-Ka-ldZ"/>
                         <outlet property="selectionView" destination="HjY-uE-ZgC" id="ZEq-QY-J65"/>
+                        <outlet property="startDate" destination="2Fz-ag-8Bf" id="BPh-7F-ayg"/>
+                        <outlet property="traveller" destination="D5P-hn-Xi5" id="Ka3-o2-acX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxY-wv-vVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
