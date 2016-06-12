@@ -132,13 +132,10 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         if (heightMoved > 0) {
             UIView.animateWithDuration(0.2, animations: {
                 self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
-//                self.navigateToButton.frame = CGRectMake(self.navigateToButton.frame.origin.x, self.navigateToButton.frame.origin.y - heightMoved, self.navigateToButton.frame.size.width, self.navigateToButton.frame.size.height)
-//                self.navButtonShadow.frame = CGRectMake(self.navButtonShadow.frame.origin.x, self.navButtonShadow.frame.origin.y - heightMoved, self.navButtonShadow.frame.size.width, self.navButtonShadow.frame.size.height)
                 }, completion: {
                     finished in
-                    let label = UILabel(frame: CGRectMake(8,8,430,300))
+                    let label = UILabel(frame: CGRectMake(8,8,430,50))
                     label.text = String(format: "%@", arguments: [self.travelPlace.title!])
-//                    self.detailView.addSubview(label)
             })
         }
     }
@@ -155,8 +152,6 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         if (heightMoved < 0) {
             UIView.animateWithDuration(0.2) {
                 self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
-//                self.navigateToButton.frame = CGRectMake(self.navigateToButton.frame.origin.x, self.navigateToButton.frame.origin.y - heightMoved, self.navigateToButton.frame.size.width, self.navigateToButton.frame.size.height)
-//                self.navButtonShadow.frame = CGRectMake(self.navButtonShadow.frame.origin.x, self.navButtonShadow.frame.origin.y - heightMoved, self.navButtonShadow.frame.size.width, self.navButtonShadow.frame.size.height)
             }
         }
     }
@@ -207,7 +202,6 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
                     self.locationManager.stopUpdatingLocation()
                 }
         })
-        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
