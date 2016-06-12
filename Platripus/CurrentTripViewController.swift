@@ -21,7 +21,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationLabelShadow: UIView!
     var locationManager: CLLocationManager!
 
-
+    var locationTuples: [(textField: UITextField!, mapItem: MKMapItem?)]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,8 +35,6 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         // setup location label
         locationLabel.layer.cornerRadius = 8.0;
         locationLabel.clipsToBounds = true;
-        locationLabel.text = "Current Location: Honolulu";
-        locationLabel.textColor = UIColor.blackColor();
         /** Shadow */
         locationLabelShadow.layer.cornerRadius = 8.0;
         locationLabelShadow.layer.shadowColor = UIColor.blackColor().CGColor;
@@ -72,6 +71,9 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         mapView.delegate = self
         mapView.showsUserLocation = true
         
+        // set tuples for map info
+//        locationTuples = [(sourceField: nil), (destinationField1: nil), (destinationField2: nil)]
+        
         // show place on map
         let place = TravelPlaces(title: "King David Kalakaua",
             locationName: "Waikiki Gateway Park",
@@ -106,6 +108,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         NSLog("navigation");
     }
     
+    // location methods
+    
     func startStandardUpdates() {
     // Create the location manager if this object does not
     // already have one.
@@ -120,11 +124,16 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.distanceFilter = 500; // meters
     
 //        if CLLocationManager.authorizationStatus() == .NotDetermined {
-//            locationManager.requestWhenInUseAuthorization();
-        locationManager.requestAlwaysAuthorization();
+            locationManager.requestWhenInUseAuthorization();
+//        locationManager.requestAlwaysAuthorization();
 //        }
         
         locationManager.startUpdatingLocation();
+    }
+    
+    func formatAddressFromPlacemark(placemark: CLPlacemark) -> String {
+        return (placemark.addressDictionary!["FormattedAddressLines"] as!
+            [String]).joinWithSeparator(", ")
     }
     
     // CLLocationmanager delegate
@@ -135,7 +144,17 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.mapView.setRegion(region, animated: true)
-        locationManager.stopUpdatingLocation();
+        
+        CLGeocoder().reverseGeocodeLocation(locations.last!,
+            completionHandler: {(placemarks:[CLPlacemark]?, error:NSError?) -> Void in
+                if let placemarks = placemarks {
+                    let placemark = placemarks[0]
+                    self.locationLabel.text = self.formatAddressFromPlacemark(placemark)
+                    self.locationLabel.textColor = UIColor.blackColor()
+                    self.locationManager.stopUpdatingLocation()
+                }
+        })
+        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
