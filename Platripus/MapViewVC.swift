@@ -26,8 +26,8 @@ extension CurrentTripViewController: MKMapViewDelegate {
                 view.canShowCallout = false
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.pinTintColor = UIColor.grayColor();
-                let tgr = UITapGestureRecognizer(target: self, action: "bringUpDetailView");
-                view.addGestureRecognizer(tgr);
+//                let tgr = UITapGestureRecognizer(target: self, action: "bringUpDetailView");
+//                view.addGestureRecognizer(tgr);
 //                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as! UIView
             }
             return view
@@ -37,11 +37,12 @@ extension CurrentTripViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         let pinView = view as! MKPinAnnotationView
-        if (pinView.pinTintColor .isEqual(UIColor.grayColor())) {
+        if (pinView.pinTintColor.isEqual(UIColor.grayColor())) { // not clicked yet
             pinView.pinTintColor = UIColor.blueColor();
         } else {
             pinView.pinTintColor = UIColor.grayColor();
         }
+        showDetail(view.annotation!);
     }
     
 }

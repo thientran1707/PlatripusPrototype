@@ -58,20 +58,6 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqH-66-tMi">
-                                <rect key="frame" x="520" y="480" width="50" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1s2-VW-T4n">
-                                <rect key="frame" x="520" y="480" width="50" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Et0-15-owJ"/>
-                                    <constraint firstAttribute="height" constant="50" id="ZS1-XS-Y21"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="8" minY="10" maxX="12" maxY="8"/>
-                                <state key="normal" image="mapNavi"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmX-dp-Rrl">
                                 <rect key="frame" x="520" y="410" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,6 +93,20 @@
                                     <constraint firstAttribute="bottom" secondItem="pTE-9e-n4Z" secondAttribute="bottom" constant="8" id="jI0-TQ-vti"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqH-66-tMi">
+                                <rect key="frame" x="520" y="480" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1s2-VW-T4n">
+                                <rect key="frame" x="520" y="480" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Et0-15-owJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZS1-XS-Y21"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="8" minY="10" maxX="12" maxY="8"/>
+                                <state key="normal" image="mapNavi"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

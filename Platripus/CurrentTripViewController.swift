@@ -22,6 +22,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var detailView: UIView!
 
     var locationManager: CLLocationManager!
+    
+    var travelPlace: TravelPlaces!
 
     var locationTuples: [(textField: UITextField!, mapItem: MKMapItem?)]!
     
@@ -57,9 +59,11 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         // setup map buttons
         navigateToButton.layer.cornerRadius = navigateToButton.frame.size.width/2.0;
         navigateToButton.clipsToBounds = true;
+//        navigateToButton.layer.masksToBounds = true;
         navigateToButton.addTarget(self, action: "navigateTo", forControlEvents: .TouchUpInside);
         
         /** Shadow */
+        navButtonShadow.layer.cornerRadius = navigateToButton.frame.size.width/2.0;
         navButtonShadow.layer.shadowColor = UIColor.blackColor().CGColor;
         navButtonShadow.layer.shadowOpacity = 0.6;
         navButtonShadow.layer.shadowOffset = CGSize.zero;
@@ -116,25 +120,43 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func navigateTo() {
-        NSLog("navigation");
+        NSLog("http://maps.apple.com/?saddr=%@&daddr=%@&dirflg=r");
+        
     }
     
     // view helper methods
     
     func bringUpDetailView() {
         let newHeight = self.view.frame.size.height * 0.6
-        if (self.detailView.frame.size.height < newHeight) {
-            UIView.animateWithDuration(0.2) {
+        let heightMoved = newHeight - self.detailView.frame.size.height;
+        if (heightMoved > 0) {
+            UIView.animateWithDuration(0.2, animations: {
                 self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
-            }
+//                self.navigateToButton.frame = CGRectMake(self.navigateToButton.frame.origin.x, self.navigateToButton.frame.origin.y - heightMoved, self.navigateToButton.frame.size.width, self.navigateToButton.frame.size.height)
+//                self.navButtonShadow.frame = CGRectMake(self.navButtonShadow.frame.origin.x, self.navButtonShadow.frame.origin.y - heightMoved, self.navButtonShadow.frame.size.width, self.navButtonShadow.frame.size.height)
+                }, completion: {
+                    finished in
+                    let label = UILabel(frame: CGRectMake(8,8,430,300))
+                    label.text = String(format: "%@", arguments: [self.travelPlace.title!])
+//                    self.detailView.addSubview(label)
+            })
         }
+    }
+    
+    func showDetail(annotation: MKAnnotation) {
+        let currentTravelPlace = annotation as! TravelPlaces
+        travelPlace = currentTravelPlace;
+        bringUpDetailView()
     }
     
     func bringDownDetailView() {
         let newHeight = 62 as CGFloat
-        if (self.detailView.frame.size.height > newHeight) {
+        let heightMoved = newHeight - self.detailView.frame.size.height;
+        if (heightMoved < 0) {
             UIView.animateWithDuration(0.2) {
                 self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
+//                self.navigateToButton.frame = CGRectMake(self.navigateToButton.frame.origin.x, self.navigateToButton.frame.origin.y - heightMoved, self.navigateToButton.frame.size.width, self.navigateToButton.frame.size.height)
+//                self.navButtonShadow.frame = CGRectMake(self.navButtonShadow.frame.origin.x, self.navButtonShadow.frame.origin.y - heightMoved, self.navButtonShadow.frame.size.width, self.navButtonShadow.frame.size.height)
             }
         }
     }
