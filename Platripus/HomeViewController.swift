@@ -8,12 +8,16 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBOutlet weak var helloText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        helloText.userInteractionEnabled = false
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
