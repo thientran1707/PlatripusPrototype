@@ -13,8 +13,6 @@
 		6E0D99421D0A5829006A0841 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D99411D0A5829006A0841 /* NotificationViewController.swift */; };
 		6E0D99441D0A583A006A0841 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D99431D0A583A006A0841 /* SettingsViewController.swift */; };
 		6EE664741D0A28BA004AC59C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE664731D0A28BA004AC59C /* Extensions.swift */; };
-		B37CDA561D0CB1F800B6848B /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CDA551D0CB1F800B6848B /* JSON.swift */; };
-		B37CDA581D0CB22300B6848B /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = B37CDA571D0CB22300B6848B /* PublicArt.json */; };
 		B37CDA5B1D0CB6DB00B6848B /* TravelPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CDA5A1D0CB6DB00B6848B /* TravelPlaces.swift */; };
 		B37CDA5D1D0CB7F700B6848B /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CDA5C1D0CB7F700B6848B /* MapViewVC.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
@@ -48,8 +46,6 @@
 		6E0D99431D0A583A006A0841 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6EDCD7A21D075173007F0402 /* Platripus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Platripus-Bridging-Header.h"; sourceTree = "<group>"; };
 		6EE664731D0A28BA004AC59C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B37CDA551D0CB1F800B6848B /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		B37CDA571D0CB22300B6848B /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
 		B37CDA5A1D0CB6DB00B6848B /* TravelPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelPlaces.swift; sourceTree = "<group>"; };
 		B37CDA5C1D0CB7F700B6848B /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		F47029F01A7F27DB00E30A3C /* Platripus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platripus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +133,6 @@
 				6E0D993F1D0A581A006A0841 /* ExploreViewController.swift */,
 				6E0D99411D0A5829006A0841 /* NotificationViewController.swift */,
 				6E0D99431D0A583A006A0841 /* SettingsViewController.swift */,
-				B37CDA551D0CB1F800B6848B /* JSON.swift */,
 			);
 			path = Platripus;
 			sourceTree = "<group>";
@@ -145,7 +140,6 @@
 		F47029F31A7F27DB00E30A3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B37CDA571D0CB22300B6848B /* PublicArt.json */,
 				F47029F41A7F27DB00E30A3C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -264,7 +258,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B37CDA581D0CB22300B6848B /* PublicArt.json in Resources */,
 				F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */,
 				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
@@ -286,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E0D993E1D0A5808006A0841 /* TravelNewsViewController.swift in Sources */,
-				B37CDA561D0CB1F800B6848B /* JSON.swift in Sources */,
 				6E0D99441D0A583A006A0841 /* SettingsViewController.swift in Sources */,
 				B37CDA5B1D0CB6DB00B6848B /* TravelPlaces.swift in Sources */,
 				B37CDA5D1D0CB7F700B6848B /* MapViewVC.swift in Sources */,
