@@ -16,7 +16,10 @@ class CurrentTripViewController: UIViewController {
     @IBOutlet weak var navigateToButton: UIButton!
     @IBOutlet weak var currLocButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var navButtonShadow: UIView!
+    @IBOutlet weak var currLocButtonShadow: UIView!
     @IBOutlet weak var locationLabelShadow: UIView!
+    var locationManager: CLLocationManager!
 
 
     override func viewDidLoad() {
@@ -29,9 +32,10 @@ class CurrentTripViewController: UIViewController {
         }
         
         // setup location label
-        locationLabel.layer.cornerRadius = 8.0
-        locationLabel.clipsToBounds = true
-        locationLabel.text = "Honolulu Visitor Center"
+        locationLabel.layer.cornerRadius = 8.0;
+        locationLabel.clipsToBounds = true;
+        locationLabel.text = "Current Location: Honolulu";
+        locationLabel.textColor = UIColor.blackColor();
         /** Shadow */
         locationLabelShadow.layer.cornerRadius = 8.0;
         locationLabelShadow.layer.shadowColor = UIColor.blackColor().CGColor;
@@ -39,9 +43,27 @@ class CurrentTripViewController: UIViewController {
         locationLabelShadow.layer.shadowOffset = CGSize.zero;
         locationLabelShadow.layer.shadowRadius = 4.0;
         
+        currLocButton.layer.cornerRadius = currLocButton.frame.size.width/2.0;
+        currLocButton.clipsToBounds = true;
+        currLocButton.addTarget(self, action: "seekToCurrentLocation", forControlEvents: .TouchUpInside);
+        /** Shadow */
+        currLocButtonShadow.layer.cornerRadius = currLocButtonShadow.frame.size.width/2.0;
+        currLocButtonShadow.layer.shadowColor = UIColor.blackColor().CGColor;
+        currLocButtonShadow.layer.shadowOpacity = 0.6;
+        currLocButtonShadow.layer.shadowOffset = CGSize.zero;
+        currLocButtonShadow.layer.shadowRadius = 3.0;
+        
         // setup map buttons
-        navigateToButton.layer.cornerRadius = navigateToButton.frame.size.width/2.0
-        navigateToButton.clipsToBounds = true
+        navigateToButton.layer.cornerRadius = navigateToButton.frame.size.width/2.0;
+        navigateToButton.clipsToBounds = true;
+        navigateToButton.addTarget(self, action: "navigateTo", forControlEvents: .TouchUpInside);
+        
+        /** Shadow */
+        navButtonShadow.layer.cornerRadius = navButtonShadow.frame.size.width/2.0;
+        navButtonShadow.layer.shadowColor = UIColor.blackColor().CGColor;
+        navButtonShadow.layer.shadowOpacity = 0.6;
+        navButtonShadow.layer.shadowOffset = CGSize.zero;
+        navButtonShadow.layer.shadowRadius = 3.0;
         
         // set initial location in Honolulu
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
@@ -50,16 +72,18 @@ class CurrentTripViewController: UIViewController {
         mapView.delegate = self
         mapView.showsUserLocation = true
         
-        
         // show place on map
         let place = TravelPlaces(title: "King David Kalakaua",
             locationName: "Waikiki Gateway Park",
             discipline: "Sculpture",
             coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
         
-        
-        
         mapView.addAnnotation(place)
+        
+        // request for map authorization
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            CLLocationManager().requestWhenInUseAuthorization();
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,15 +97,13 @@ class CurrentTripViewController: UIViewController {
             regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func seekToCurrentLocation() {
+        NSLog("asdf");
     }
-    */
+    
+    func navigateTo() {
+        NSLog("navigation");
+    }
 
 }
