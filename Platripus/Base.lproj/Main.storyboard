@@ -488,7 +488,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="se7-0n-LyH">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se7-0n-LyH">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kyn-at-pnj">
@@ -500,10 +500,32 @@
                                                     <constraint firstAttribute="height" constant="300" id="2hX-GX-fgW"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEr-B4-BOj">
+                                                <rect key="frame" x="8" y="315" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W1T-sb-sxt">
+                                                <rect key="frame" x="8" y="344" width="240" height="63"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HjY-uE-ZgC">
+                                                <rect key="frame" x="8" y="423" width="584" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="W1T-sb-sxt" firstAttribute="top" secondItem="LEr-B4-BOj" secondAttribute="bottom" id="Dzo-Ha-I2a"/>
+                                            <constraint firstAttribute="trailing" secondItem="HjY-uE-ZgC" secondAttribute="trailing" constant="10" id="MQ3-yJ-GKw"/>
+                                            <constraint firstItem="HjY-uE-ZgC" firstAttribute="leading" secondItem="Kyn-at-pnj" secondAttribute="leading" constant="10" id="MR2-a5-I0O"/>
+                                            <constraint firstItem="LEr-B4-BOj" firstAttribute="leading" secondItem="Kyn-at-pnj" secondAttribute="leading" constant="10" id="WmW-JC-MQ4"/>
                                             <constraint firstItem="b2K-u9-yjk" firstAttribute="width" secondItem="Kyn-at-pnj" secondAttribute="width" id="XfA-fA-Hgm"/>
+                                            <constraint firstItem="LEr-B4-BOj" firstAttribute="top" secondItem="b2K-u9-yjk" secondAttribute="bottom" id="uM6-FN-4Tu"/>
+                                            <constraint firstItem="W1T-sb-sxt" firstAttribute="leading" secondItem="Kyn-at-pnj" secondAttribute="leading" constant="6" id="x6e-GL-xxV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -522,6 +544,7 @@
                             <constraint firstItem="se7-0n-LyH" firstAttribute="top" secondItem="4ec-SP-rf0" secondAttribute="bottom" id="BDR-dJ-EIj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="se7-0n-LyH" secondAttribute="trailing" constant="-20" id="VJd-Z8-lAz"/>
                             <constraint firstItem="pbM-tC-YnB" firstAttribute="top" secondItem="se7-0n-LyH" secondAttribute="bottom" id="Ykv-lu-74R"/>
+                            <constraint firstItem="se7-0n-LyH" firstAttribute="width" secondItem="ZZC-6a-8fu" secondAttribute="width" id="cao-ba-UGY"/>
                             <constraint firstItem="se7-0n-LyH" firstAttribute="leading" secondItem="ZZC-6a-8fu" secondAttribute="leadingMargin" constant="-20" id="ezK-Ew-Rke"/>
                         </constraints>
                     </view>
@@ -531,7 +554,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="helloText" destination="W1T-sb-sxt" id="Eox-4M-Epf"/>
                         <outlet property="menuButton" destination="uLc-6z-Jsg" id="brV-Ka-ldZ"/>
+                        <outlet property="selectionView" destination="HjY-uE-ZgC" id="ZEq-QY-J65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxY-wv-vVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

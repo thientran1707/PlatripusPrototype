@@ -12,13 +12,18 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBOutlet weak var helloText: UITextView!
+    
+
+    @IBOutlet weak var selectionView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
-        //helloText.userInteractionEnabled = false
-        //selectionView.layer.borderWidth = 1
-        //selectionView.layer.borderColor = UIColor.redColor().CGColor
+        helloText.userInteractionEnabled = false
+        selectionView.layer.borderWidth = 1
+        selectionView.layer.borderColor = UIColor.redColor().CGColor
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
