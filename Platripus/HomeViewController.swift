@@ -11,24 +11,15 @@ import UIKit
 class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
     @IBOutlet weak var helloText: UITextView!
-    
-
     @IBOutlet weak var selectionView: UIView!
-    
-    
     @IBOutlet weak var traveller: UITextField!
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var budget: UITextField!
-    
-    
     @IBOutlet weak var startDate: UITextField!
-    
-    
     @IBOutlet weak var endDate: UITextField!
     
-    
+    @IBOutlet weak var goButton: UIButton!
     let locations = ["San Francisco", "Los Angeles", "Las Vegas", "New York"]
     let travellers = ["1 Traveller", "2 Travellers", "3 Travellers", "4 Travellers"]
     let budgets = ["Below $50", "$50- $100", "$100- $200", "$200- $400", "$400- $700", "Above $700"]
@@ -118,6 +109,8 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         helloText.userInteractionEnabled = false
         selectionView.layer.borderWidth = 1
         selectionView.layer.borderColor = UIColor.grayColor().CGColor
+        
+        goButton.backgroundColor = UIColor(hex: 0xEC2C43)
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()

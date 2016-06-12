@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // customize navigtion bar background color to Plantripus theme #0xEC2C43
         UINavigationBar.appearance().barTintColor = UIColor(hex: 0xEC2C43)
-        UINavigationBar.appearance().opaque = true
+        //UINavigationBar.appearance().opaque = true
         
         // customize navigation bar text color to white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
