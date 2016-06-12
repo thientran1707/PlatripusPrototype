@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class Artwork: NSObject, MKAnnotation {
+class TravelPlaces: NSObject, MKAnnotation {
     let title: String?
     let locationName: String
     let discipline: String

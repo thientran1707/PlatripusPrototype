@@ -42,22 +42,90 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nsc-35-MTe">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="tintColor" red="0.92549019607843142" green="0.17254901960784313" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxc-8k-dkD">
+                                <rect key="frame" x="40" y="77" width="521" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching your location..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-N6-t2w">
+                                <rect key="frame" x="40" y="77" width="521" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h2N-wR-tSl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqH-66-tMi">
+                                <rect key="frame" x="520" y="480" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1s2-VW-T4n">
+                                <rect key="frame" x="520" y="480" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Et0-15-owJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZS1-XS-Y21"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="8" minY="10" maxX="12" maxY="8"/>
+                                <state key="normal" image="mapNavi"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmX-dp-Rrl">
+                                <rect key="frame" x="520" y="410" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTu-DU-HR8">
+                                <rect key="frame" x="520" y="410" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="L65-VS-WS5"/>
+                                    <constraint firstAttribute="width" constant="50" id="OfY-fe-PIO"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="mapTarget"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GLp-rp-ryS" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="bottom" constant="70" id="0Nz-eA-xbh"/>
+                            <constraint firstItem="Cxc-8k-dkD" firstAttribute="leading" secondItem="ftJ-N6-t2w" secondAttribute="leading" id="4B9-Rb-EkQ"/>
+                            <constraint firstItem="ftJ-N6-t2w" firstAttribute="leading" secondItem="HE4-02-mb0" secondAttribute="leadingMargin" constant="20" id="4Zp-s2-1GB"/>
+                            <constraint firstItem="ftJ-N6-t2w" firstAttribute="top" secondItem="1V6-Hn-ruu" secondAttribute="bottom" constant="13" id="EUi-fs-rx8"/>
+                            <constraint firstItem="xqH-66-tMi" firstAttribute="top" secondItem="1s2-VW-T4n" secondAttribute="top" id="GjN-lK-fDm"/>
+                            <constraint firstItem="mmX-dp-Rrl" firstAttribute="top" secondItem="eTu-DU-HR8" secondAttribute="top" id="GjP-lR-838"/>
+                            <constraint firstItem="mmX-dp-Rrl" firstAttribute="bottom" secondItem="eTu-DU-HR8" secondAttribute="bottom" id="H3G-2C-4dn"/>
+                            <constraint firstItem="Cxc-8k-dkD" firstAttribute="bottom" secondItem="ftJ-N6-t2w" secondAttribute="bottom" id="Hxg-0g-TOI"/>
+                            <constraint firstItem="xqH-66-tMi" firstAttribute="bottom" secondItem="1s2-VW-T4n" secondAttribute="bottom" id="JJJ-jh-rsp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eTu-DU-HR8" secondAttribute="trailing" constant="10" id="LA5-i9-GGB"/>
+                            <constraint firstItem="mmX-dp-Rrl" firstAttribute="leading" secondItem="xqH-66-tMi" secondAttribute="leading" id="MOj-vE-O34"/>
+                            <constraint firstItem="mmX-dp-Rrl" firstAttribute="trailing" secondItem="eTu-DU-HR8" secondAttribute="trailing" id="XJ6-I6-fFo"/>
                             <constraint firstItem="nsc-35-MTe" firstAttribute="leading" secondItem="HE4-02-mb0" secondAttribute="leading" id="YdN-LU-Bp1"/>
                             <constraint firstItem="nsc-35-MTe" firstAttribute="top" secondItem="HE4-02-mb0" secondAttribute="top" id="b27-P5-1ug"/>
+                            <constraint firstItem="1s2-VW-T4n" firstAttribute="top" secondItem="eTu-DU-HR8" secondAttribute="bottom" constant="20" id="baQ-a7-BRr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1s2-VW-T4n" secondAttribute="trailing" constant="10" id="be8-vn-Wmw"/>
+                            <constraint firstItem="Cxc-8k-dkD" firstAttribute="top" secondItem="ftJ-N6-t2w" secondAttribute="top" id="dhK-dF-UHo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ftJ-N6-t2w" secondAttribute="trailing" constant="19" id="lE2-Y5-n4m"/>
+                            <constraint firstItem="Cxc-8k-dkD" firstAttribute="trailing" secondItem="ftJ-N6-t2w" secondAttribute="trailing" id="nL0-4M-H8j"/>
+                            <constraint firstItem="mmX-dp-Rrl" firstAttribute="trailing" secondItem="xqH-66-tMi" secondAttribute="trailing" id="qdK-wo-VhT"/>
                             <constraint firstItem="nsc-35-MTe" firstAttribute="bottom" secondItem="GLp-rp-ryS" secondAttribute="top" id="qxz-OC-NpC"/>
-                            <constraint firstAttribute="trailing" secondItem="nsc-35-MTe" secondAttribute="trailing" id="uTY-dt-oMO"/>
+                            <constraint firstItem="mmX-dp-Rrl" firstAttribute="leading" secondItem="eTu-DU-HR8" secondAttribute="leading" id="rbJ-In-euh"/>
+                            <constraint firstItem="ftJ-N6-t2w" firstAttribute="centerX" secondItem="nsc-35-MTe" secondAttribute="centerX" id="xgx-Zr-YeU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Current Trip" id="YdA-HD-78b">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="rhH-Mc-GbH"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="currLocButton" destination="eTu-DU-HR8" id="C3g-GX-arh"/>
+                        <outlet property="currLocButtonShadow" destination="mmX-dp-Rrl" id="hH3-9a-Zlu"/>
+                        <outlet property="locationLabel" destination="ftJ-N6-t2w" id="2oV-go-cyb"/>
+                        <outlet property="locationLabelShadow" destination="Cxc-8k-dkD" id="ZvT-ML-WHo"/>
                         <outlet property="mapView" destination="nsc-35-MTe" id="qu1-t0-yYo"/>
                         <outlet property="menuButton" destination="rhH-Mc-GbH" id="ZR2-Ak-cxH"/>
+                        <outlet property="navButtonShadow" destination="xqH-66-tMi" id="iPX-n6-KIQ"/>
+                        <outlet property="navigateToButton" destination="1s2-VW-T4n" id="agJ-ka-Vk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TD-bi-rsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,9 +240,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="96"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="author" translatesAutoresizingMaskIntoConstraints="NO" id="Tze-EY-wGt">
-                                    <rect key="frame" x="8" y="13" width="70" height="70"/>
-                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bryan@traveller.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="het-1S-0co">
                                     <rect key="frame" x="86" y="57" width="182" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -187,6 +252,9 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="author" translatesAutoresizingMaskIntoConstraints="NO" id="Tze-EY-wGt">
+                                    <rect key="frame" x="8" y="13" width="70" height="70"/>
+                                </imageView>
                             </subviews>
                         </view>
                         <sections>
@@ -783,11 +851,47 @@
             </objects>
             <point key="canvasLocation" x="786" y="337"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lbl-jK-V1z">
+            <objects>
+                <viewController id="lV9-F4-tAa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z8O-M6-9Z8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qhs-j9-Izb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AyW-BE-M7x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w6N-Y5-SO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KdH-ff-OYc">
+            <objects>
+                <viewController id="Ve7-RD-ySo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ITW-jw-xvN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ong-gY-EGw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0cI-yl-pv3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jgg-d7-Hdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="author" width="200" height="200"/>
         <image name="current" width="50" height="50"/>
         <image name="home" width="50" height="50"/>
+        <image name="mapNavi" width="50" height="50"/>
+        <image name="mapTarget" width="192" height="192"/>
         <image name="menu" width="22" height="22"/>
         <image name="news" width="50" height="50"/>
         <image name="noti" width="50" height="50"/>
@@ -797,7 +901,7 @@
         <image name="welcome" width="691" height="609"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AVl-c6-5UF"/>
+        <segue reference="Zw8-Xd-2Hu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

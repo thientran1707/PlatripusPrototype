@@ -10,9 +10,17 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class CurrentTripViewController: UIViewController {
+class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var menuButton:UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var navigateToButton: UIButton!
+    @IBOutlet weak var currLocButton: UIButton!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var navButtonShadow: UIView!
+    @IBOutlet weak var currLocButtonShadow: UIView!
+    @IBOutlet weak var locationLabelShadow: UIView!
+    var locationManager: CLLocationManager!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +31,57 @@ class CurrentTripViewController: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        // setup location label
+        locationLabel.layer.cornerRadius = 8.0;
+        locationLabel.clipsToBounds = true;
+        locationLabel.text = "Current Location: Honolulu";
+        locationLabel.textColor = UIColor.blackColor();
+        /** Shadow */
+        locationLabelShadow.layer.cornerRadius = 8.0;
+        locationLabelShadow.layer.shadowColor = UIColor.blackColor().CGColor;
+        locationLabelShadow.layer.shadowOpacity = 0.6;
+        locationLabelShadow.layer.shadowOffset = CGSize.zero;
+        locationLabelShadow.layer.shadowRadius = 4.0;
+        
+        currLocButton.layer.cornerRadius = currLocButton.frame.size.width/2.0;
+        currLocButton.clipsToBounds = true;
+        currLocButton.addTarget(self, action: "seekToCurrentLocation", forControlEvents: .TouchUpInside);
+        /** Shadow */
+        currLocButtonShadow.layer.cornerRadius = currLocButtonShadow.frame.size.width/2.0;
+        currLocButtonShadow.layer.shadowColor = UIColor.blackColor().CGColor;
+        currLocButtonShadow.layer.shadowOpacity = 0.6;
+        currLocButtonShadow.layer.shadowOffset = CGSize.zero;
+        currLocButtonShadow.layer.shadowRadius = 3.0;
+        
+        // setup map buttons
+        navigateToButton.layer.cornerRadius = navigateToButton.frame.size.width/2.0;
+        navigateToButton.clipsToBounds = true;
+        navigateToButton.addTarget(self, action: "navigateTo", forControlEvents: .TouchUpInside);
+        
+        /** Shadow */
+        navButtonShadow.layer.cornerRadius = navButtonShadow.frame.size.width/2.0;
+        navButtonShadow.layer.shadowColor = UIColor.blackColor().CGColor;
+        navButtonShadow.layer.shadowOpacity = 0.6;
+        navButtonShadow.layer.shadowOffset = CGSize.zero;
+        navButtonShadow.layer.shadowRadius = 3.0;
+        
         // set initial location in Honolulu
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         centerMapOnLocation(initialLocation)
         
         mapView.delegate = self
+        mapView.showsUserLocation = true
         
-        // show artwork on map
-        let artwork = Artwork(title: "King David Kalakaua",
+        // show place on map
+        let place = TravelPlaces(title: "King David Kalakaua",
             locationName: "Waikiki Gateway Park",
             discipline: "Sculpture",
             coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
         
-        mapView.addAnnotation(artwork)
+        mapView.addAnnotation(place)
+        
+        // request for map authorization
+        self.startStandardUpdates();
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,15 +95,51 @@ class CurrentTripViewController: UIViewController {
             regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    func seekToCurrentLocation() {
+        locationManager.requestLocation();
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        NSLog("asdf");
     }
-    */
+    
+    func navigateTo() {
+        NSLog("navigation");
+    }
+    
+    func startStandardUpdates() {
+    // Create the location manager if this object does not
+    // already have one.
+        if (locationManager == nil) {
+            locationManager = CLLocationManager();
+        }
+    
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+        // Set a movement threshold for new events.
+        locationManager.distanceFilter = 500; // meters
+    
+//        if CLLocationManager.authorizationStatus() == .NotDetermined {
+//            locationManager.requestWhenInUseAuthorization();
+        locationManager.requestAlwaysAuthorization();
+//        }
+        
+        locationManager.startUpdatingLocation();
+    }
+    
+    // CLLocationmanager delegate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last! as CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        self.mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation();
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        NSLog("error: %@", error);
+    }
 
 }
