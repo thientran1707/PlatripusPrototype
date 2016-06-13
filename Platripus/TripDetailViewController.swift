@@ -15,11 +15,14 @@ class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var content1: UIView!
     @IBOutlet weak var day1: UIView!
-    
     @IBOutlet weak var day2: UIView!
-    
     @IBOutlet weak var day3: UIView!
     @IBOutlet weak var day4: UIView!
+    @IBOutlet weak var bookingView: UIView!
+    
+    @IBOutlet weak var bookButton1: UIButton!
+    @IBOutlet weak var bookButton2: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,15 +33,20 @@ class TripDetailViewController: UIViewController {
         var scrollView: UIScrollView!
         
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 80, width: width, height: height))
-        scrollView.contentSize = CGSizeMake(width, 1500)
+        scrollView.contentSize = CGSizeMake(width, 940)
+        
+        bookButton1.backgroundColor = UIColor(hex: 0xEC2C43)
+
+        bookButton2.backgroundColor = UIColor(hex: 0xEC2C43)
+
         scrollView.addSubview(content1)
         scrollView.addSubview(day1)
         scrollView.addSubview(day2)
         scrollView.addSubview(day3)
         scrollView.addSubview(day4)
+        scrollView.addSubview(bookingView)
         
         view.addSubview(scrollView)
-        //scrollView.addSubview(contentView)
 
         // Do any additional setup after loading the view.
     }
