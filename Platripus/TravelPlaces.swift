@@ -24,6 +24,15 @@ class TravelPlaces: NSObject, MKAnnotation {
         super.init()
     }
     
+    init(title: String, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.locationName = ""
+        self.discipline = ""
+        self.coordinate = coordinate
+        
+        super.init()
+    }
+    
     var subtitle: String? {
         return locationName
     }
