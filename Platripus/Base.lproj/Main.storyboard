@@ -693,7 +693,7 @@
                                     <outlet property="postImageView" destination="TOT-Pc-uE1" id="Rav-ta-nhO"/>
                                     <outlet property="postTitleLabel" destination="V0e-WR-5OO" id="K8s-C0-lDY"/>
                                     <outlet property="price" destination="4Dv-7w-gJ5" id="T5k-lI-OIo"/>
-                                    <segue destination="nh9-wL-mRW" kind="push" id="mTb-fz-GyK"/>
+                                    <segue destination="nh9-wL-mRW" kind="push" identifier="viewDetailTrip" id="mTb-fz-GyK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -703,10 +703,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Trips" id="9hk-BQ-gQM"/>
+                    <connections>
+                        <outlet property="tripSelectionTableView" destination="6GL-UL-OqI" id="Dwg-WC-YMY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scr-eF-bVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="2759"/>
+            <point key="canvasLocation" x="1847" y="2614"/>
         </scene>
         <!--Itenery-->
         <scene sceneID="WAb-jJ-02z">
@@ -977,7 +980,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gB7-e0-hP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2211" y="2431"/>
+            <point key="canvasLocation" x="2369" y="2398"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="55X-fW-kTS">

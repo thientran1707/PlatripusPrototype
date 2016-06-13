@@ -9,7 +9,11 @@
 import UIKit
 
 class TripSelectionTableViewController: UITableViewController {
-
+    
+    
+    @IBOutlet var tripSelectionTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +21,7 @@ class TripSelectionTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem(
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +46,7 @@ class TripSelectionTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tripCell", forIndexPath: indexPath) as! TripSelectionTableViewCell
-        print("After cell")
+
         // Configure the cell...
         if indexPath.row == 0 {
             cell.postImageView.image = UIImage(named: "trip1")
@@ -65,6 +69,18 @@ class TripSelectionTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //print(segue.identifier)
+        
+        if let cell = sender as? UITableViewCell {
+            let index = tripSelectionTableView.indexPathForCell(cell)!.row
+            if segue.identifier == "viewDetailTrip" {
+                print(index)
+            }
+        }
+        
     }
 
     /*
