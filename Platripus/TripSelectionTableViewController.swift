@@ -13,6 +13,60 @@ class TripSelectionTableViewController: UITableViewController {
     
     @IBOutlet var tripSelectionTableView: UITableView!
     
+    /* Data to pass to TripDetailViewController when cell is clicked */
+    let tripTitleArray: [String] = [
+    
+    ]
+    
+    let tripTitleImageArray: [String] = [
+    
+    ]
+    
+    let tripLabelArray: [[String]] = [
+      []
+    ]
+    
+    let dataArray: [[String: [String]]] = [
+      ["Test": ["Test"]]
+    ]
+    
+    let bookingArray:[[String]] = [
+      []
+    ]
+    
+    /* Used to test segue */
+    
+    let titleText = "3 days in San Francisco"
+    let titleImage = "trip1"
+    let tripLabel: [String] = ["Day 1: Golden Gate Bridge", "Day 2: San Francisco", "Day 3: Yosemite"]
+    let data: [String: [String]] = [
+        "Day 1: Golden Gate Bridge":
+            [
+                "0900 - 1100 : 🌿 Golden Gate Park",
+                "1200 - 1300 : 🎢 Golden Gate Bridge",
+                "1300 - 1500 : 🏃 Sutro Baths",
+                "1500 - 1700 : 🌅 Ocean Beach",
+                "1900 - 2000 : 🍽 Cliff House"
+        ],
+        "Day 2: San Francisco": [
+            "0900 - 1100 : 🎢 Lombard Street",
+            "1200 - 1300 : 👜 Fisherman's Wharf",
+            "1300 - 1500 : 🌿 Golden Gate Park",
+            "1500 - 1700 : 🏛 Academy of Sciences",
+            "1900 - 2000 : 🖼 Painted Ladies"
+        ],
+        "Day 3: Yosemite": [
+            "0900 - 1100 : 🖼 Tunnel View",
+            "1200 - 1300 : 🌿 Bridalveil Falls",
+            "1300 - 1500 : 🏃 Yosemite Falls",
+            "1500 - 1700 : 🏃 Vernal Falls Trail",
+            "1900 - 2000 : 🖼 Valley View"
+        ]
+        
+    ]
+    
+    let booking: [String] = ["Flight to San Francisco", "3 days accommodation"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +82,6 @@ class TripSelectionTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
 
     // MARK: - Table view data source
     
@@ -78,6 +130,13 @@ class TripSelectionTableViewController: UITableViewController {
             let index = tripSelectionTableView.indexPathForCell(cell)!.row
             if segue.identifier == "viewDetailTrip" {
                 print(index)
+                let detailViewController = segue.destinationViewController as! TripDetailViewController
+                
+                detailViewController.titleText = titleText
+                detailViewController.titleImage = titleImage
+                detailViewController.tripLabelArray = tripLabel
+                detailViewController.data = data
+                detailViewController.booking = booking
             }
         }
         
