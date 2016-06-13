@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G12a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Reveal View Controller-->
@@ -63,20 +63,6 @@
                                 <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                 <state key="normal" image="mapTarget"/>
                             </button>
-                            <view contentMode="scaleToFill" id="7Lv-tj-SaS">
-                                <rect key="frame" x="-4" y="506" width="328" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a pin to view more info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pTE-9e-n4Z">
-                                        <rect key="frame" x="20" y="8" width="288" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" id="xqH-66-tMi">
                                 <rect key="frame" x="244" y="448" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,6 +75,25 @@
                                 <inset key="imageEdgeInsets" minX="8" minY="10" maxX="12" maxY="8"/>
                                 <state key="normal" image="mapNavi"/>
                             </button>
+                            <view contentMode="scaleToFill" id="7Lv-tj-SaS">
+                                <rect key="frame" x="0.0" y="506" width="320" height="340"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a pin to view more info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pTE-9e-n4Z">
+                                        <rect key="frame" x="16" y="8" width="288" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kEs-04-Ds7">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -98,7 +103,9 @@
                     <connections>
                         <outlet property="currLocButton" destination="eTu-DU-HR8" id="C3g-GX-arh"/>
                         <outlet property="currLocButtonShadow" destination="mmX-dp-Rrl" id="hH3-9a-Zlu"/>
+                        <outlet property="detailScrollView" destination="kEs-04-Ds7" id="CAP-IX-qHD"/>
                         <outlet property="detailView" destination="7Lv-tj-SaS" id="cTt-uo-QlV"/>
+                        <outlet property="detailViewLabel" destination="pTE-9e-n4Z" id="q1a-PC-lxE"/>
                         <outlet property="locationLabel" destination="ftJ-N6-t2w" id="2oV-go-cyb"/>
                         <outlet property="locationLabelShadow" destination="Cxc-8k-dkD" id="ZvT-ML-WHo"/>
                         <outlet property="mapView" destination="nsc-35-MTe" id="qu1-t0-yYo"/>
@@ -109,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TD-bi-rsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374.4000000000001" y="48.280000000000001"/>
+            <point key="canvasLocation" x="1374" y="48"/>
         </scene>
         <!--Upcoming Trips-->
         <scene sceneID="3qE-8D-r7Z">
@@ -666,7 +673,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bMI-cq-F7x">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bMI-cq-F7x" id="r3e-ld-4ON">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
