@@ -15,23 +15,161 @@ class TripSelectionTableViewController: UITableViewController {
     
     /* Data to pass to TripDetailViewController when cell is clicked */
     let tripTitleArray: [String] = [
-    
+      "3 days trip in San Francisco",
+      "4 days trips in San Francisco",
+      "3 days trip in Yosemite",
+      "4 days trip in Yellow Stone"
     ]
     
     let tripTitleImageArray: [String] = [
-    
+      "trip1",
+      "trip2",
+      "trip3",
+      "trip4"
     ]
     
     let tripLabelArray: [[String]] = [
-      []
+        ["Day 1: Golden Gate Bridge", "Day 2: San Francisco", "Day 3: Yosemite"],
+        ["Day 1: Golden Gate Bridge", "Day 2: San Francisco", "Day 3: Yosemite", "Day 4: Nappa Valley"],
+        ["Day 1: Golden Gate Bridge", "Day 2: San Francisco", "Day 3: Yosemite"],
+        ["Day 1: Golden Gate Bridge", "Day 2: San Francisco", "Day 3: Yosemite", "Day 4: Nappa Valley"]
     ]
     
     let dataArray: [[String: [String]]] = [
-      ["Test": ["Test"]]
+        [
+            "Day 1: Golden Gate Bridge":
+                [
+                    "0900 - 1100 : 🌿 Golden Gate Park",
+                    "1200 - 1300 : 🎢 Golden Gate Bridge",
+                    "1300 - 1500 : 🏃 Sutro Baths",
+                    "1500 - 1700 : 🌅 Ocean Beach",
+                    "1900 - 2000 : 🍽 Cliff House"
+            ],
+            "Day 2: San Francisco": [
+                "0900 - 1100 : 🎢 Lombard Street",
+                "1200 - 1300 : 👜 Fisherman's Wharf",
+                "1300 - 1500 : 🌿 Golden Gate Park",
+                "1500 - 1700 : 🏛 Academy of Sciences",
+                "1900 - 2000 : 🖼 Painted Ladies"
+            ],
+            "Day 3: Yosemite": [
+                "0900 - 1100 : 🖼 Tunnel View",
+                "1200 - 1300 : 🌿 Bridalveil Falls",
+                "1300 - 1500 : 🏃 Yosemite Falls",
+                "1500 - 1700 : 🏃 Vernal Falls Trail",
+                "1900 - 2000 : 🖼 Valley View"
+            ]
+        ],
+        
+        [
+            "Day 1: Golden Gate Bridge":
+                [
+                    "0900 - 1100 : 🌿 Golden Gate Park",
+                    "1200 - 1300 : 🎢 Golden Gate Bridge",
+                    "1300 - 1500 : 🏃 Sutro Baths",
+                    "1500 - 1700 : 🌅 Ocean Beach",
+                    "1900 - 2000 : 🍽 Cliff House"
+            ],
+            "Day 2: San Francisco": [
+                "0900 - 1100 : 🎢 Lombard Street",
+                "1200 - 1300 : 👜 Fisherman's Wharf",
+                "1300 - 1500 : 🌿 Golden Gate Park",
+                "1500 - 1700 : 🏛 Academy of Sciences",
+                "1900 - 2000 : 🖼 Painted Ladies"
+            ],
+            "Day 3: Yosemite": [
+                "0900 - 1100 : 🖼 Tunnel View",
+                "1200 - 1300 : 🌿 Bridalveil Falls",
+                "1300 - 1500 : 🏃 Yosemite Falls",
+                "1500 - 1700 : 🏃 Vernal Falls Trail",
+                "1900 - 2000 : 🖼 Valley View"
+            ],
+            "Day 4: Nappa Valley": [
+                "0900 - 1100 : 🖼 Tunnel View",
+                "1200 - 1300 : 🌿 Bridalveil Falls",
+                "1300 - 1500 : 🏃 Yosemite Falls",
+                "1500 - 1700 : 🏃 Vernal Falls Trail",
+                "1900 - 2000 : 🖼 Valley View"
+            ]
+        ],
+        [
+            "Day 1: Golden Gate Bridge":
+                [
+                    "0900 - 1100 : 🌿 Golden Gate Park",
+                    "1200 - 1300 : 🎢 Golden Gate Bridge",
+                    "1300 - 1500 : 🏃 Sutro Baths",
+                    "1500 - 1700 : 🌅 Ocean Beach",
+                    "1900 - 2000 : 🍽 Cliff House"
+            ],
+            "Day 2: San Francisco": [
+                "0900 - 1100 : 🎢 Lombard Street",
+                "1200 - 1300 : 👜 Fisherman's Wharf",
+                "1300 - 1500 : 🌿 Golden Gate Park",
+                "1500 - 1700 : 🏛 Academy of Sciences",
+                "1900 - 2000 : 🖼 Painted Ladies"
+            ],
+            "Day 3: Yosemite": [
+                "0900 - 1100 : 🖼 Tunnel View",
+                "1200 - 1300 : 🌿 Bridalveil Falls",
+                "1300 - 1500 : 🏃 Yosemite Falls",
+                "1500 - 1700 : 🏃 Vernal Falls Trail",
+                "1900 - 2000 : 🖼 Valley View"
+            ]
+        ],
+        [
+            "Day 1: Golden Gate Bridge":
+                [
+                    "0900 - 1100 : 🌿 Golden Gate Park",
+                    "1200 - 1300 : 🎢 Golden Gate Bridge",
+                    "1300 - 1500 : 🏃 Sutro Baths",
+                    "1500 - 1700 : 🌅 Ocean Beach",
+                    "1900 - 2000 : 🍽 Cliff House"
+            ],
+            "Day 2: San Francisco": [
+                "0900 - 1100 : 🎢 Lombard Street",
+                "1200 - 1300 : 👜 Fisherman's Wharf",
+                "1300 - 1500 : 🌿 Golden Gate Park",
+                "1500 - 1700 : 🏛 Academy of Sciences",
+                "1900 - 2000 : 🖼 Painted Ladies"
+            ],
+            "Day 3: Yosemite": [
+                "0900 - 1100 : 🖼 Tunnel View",
+                "1200 - 1300 : 🌿 Bridalveil Falls",
+                "1300 - 1500 : 🏃 Yosemite Falls",
+                "1500 - 1700 : 🏃 Vernal Falls Trail",
+                "1900 - 2000 : 🖼 Valley View"
+            ],
+            "Day 4: Nappa Valley": [
+                "0900 - 1100 : 🖼 Tunnel View",
+                "1200 - 1300 : 🌿 Bridalveil Falls",
+                "1300 - 1500 : 🏃 Yosemite Falls",
+                "1500 - 1700 : 🏃 Vernal Falls Trail",
+                "1900 - 2000 : 🖼 Valley View"
+            ]
+        ],
+        
     ]
     
     let bookingArray:[[String]] = [
-      []
+        ["Flight to San Francisco", "3 days accommodation"],
+        ["Flight to San Francisco", "3 days accommodation", "Tickets to Yosemite"],
+        ["Flight to San Francisco", "3 days accommodation"],
+        ["Flight to San Francisco", "3 days accommodation", "Tickets to Yosemite"],
+    ]
+    
+    /* Array data for trip table view */
+    let tripNameArray: [String] = [
+        "Golden Gate Bridge, Lombat Street, Chinatown, Alcatraz",
+        "Golden Gate Bridge, Alcatraz, Nappa Valley, Yosemite",
+        "Yosemite National Park, Tunnel View, Glacier Point",
+        "Lake Tahoe, 2 Day Ski Pass, Sacramento"
+    ]
+    
+    let tripPriceArray: [String] = [
+        "$299",
+        "$499",
+        "$199",
+        "$699"
     ]
     
     /* Used to test segue */
@@ -100,7 +238,7 @@ class TripSelectionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("tripCell", forIndexPath: indexPath) as! TripSelectionTableViewCell
 
         // Configure the cell...
-        if indexPath.row == 0 {
+        /*if indexPath.row == 0 {
             cell.postImageView.image = UIImage(named: "trip1")
             cell.postTitleLabel.text = "Golden Gate Bridge, Lombat Street, Chinatown, Alcatraz"
             cell.price.text = "$299"
@@ -118,7 +256,11 @@ class TripSelectionTableViewController: UITableViewController {
             cell.postImageView.image = UIImage(named: "trip4")
             cell.postTitleLabel.text = "Lake Tahoe, 2 Day Ski Pass, Sacramento"
             cell.price.text = "$449"
-        }
+        }*/
+        let row = indexPath.row
+        cell.postImageView.image = UIImage(named: tripTitleImageArray[row])
+        cell.postTitleLabel.text = tripNameArray[row]
+        cell.price.text = tripPriceArray[row]
         
         return cell
     }

@@ -23,7 +23,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var bookButton2: UIButton!
     
     var titleText: String?
-    var titleImage: String? 
+    var titleImage: String?
     var tripLabelArray: [String] = []
     var data: [String: [String]] = [:]
     var booking: [String] = []
@@ -104,7 +104,6 @@ class TripDetailViewController: UIViewController {
         
         let detailHeaderView: UIView = UIView(frame: CGRect(x: 0, y: 30, width: screenSize.width, height: 260))
         let label = UILabel(frame: CGRectMake(0, 30, screenSize.width, 30))
-        //label.backgroundColor = UIColor.grayColor()
         label.textAlignment = NSTextAlignment.Center
         label.text = titleText
         
