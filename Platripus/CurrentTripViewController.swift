@@ -20,12 +20,18 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var currLocButtonShadow: UIView!
     @IBOutlet weak var locationLabelShadow: UIView!
     @IBOutlet weak var detailView: UIView!
+    @IBOutlet weak var detailViewLabel: UILabel!
+    @IBOutlet weak var detailScrollView: UIScrollView!
 
     var locationManager: CLLocationManager!
     
     var travelPlace: TravelPlaces!
 
     var locationTuples: [(textField: UITextField!, mapItem: MKMapItem?)]!
+    
+    var currentTripDictionary: [String: String] = ["Golden Gate Park":"Central gathering spot for the hippie generation during the 1967. A nod to that history can be seen today in the daily gatherings at Hippie Hill. Today it is one of the top five most-visited city parks in the United States.",
+    ]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +81,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         detailView.layer.shadowOffset = CGSize.zero;
         detailView.layer.shadowRadius = 4.0;
         
+        detailScrollView.hidden = true
+        
         // prepare tap gesture recognizer to close the detailView
         let tgr = UITapGestureRecognizer(target: self, action: "bringDownDetailView")
         mapView.addGestureRecognizer(tgr)
@@ -90,7 +98,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
 //        locationTuples = [(sourceField: nil), (destinationField1: nil), (destinationField2: nil)]
         
         // show place on map
-        let place = TravelPlaces(title: "King David Kalakaua",
+        let place = TravelPlaces(title: "Golden Gate Park",
             locationName: "Waikiki Gateway Park",
             discipline: "Sculpture",
             coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
@@ -127,17 +135,44 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     // view helper methods
     
     func bringUpDetailView() {
-        let newHeight = self.view.frame.size.height * 0.6
-        let heightMoved = newHeight - self.detailView.frame.size.height;
+//        let newHeight = self.view.frame.size.height * 0.6
+        let newY = 228 as CGFloat
+        let heightMoved = self.detailView.frame.origin.y - newY;
         if (heightMoved > 0) {
+            self.detailScrollView.hidden = false
+            self.detailScrollView.contentSize = self.detailScrollView.frame.size
             UIView.animateWithDuration(0.2, animations: {
-                self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
+                self.detailView.frame = CGRectMake(0, newY, self.detailView.frame.size.width, self.detailView.frame.size.height)
                 }, completion: {
                     finished in
-                    let label = UILabel(frame: CGRectMake(8,8,430,50))
-                    label.text = String(format: "%@", arguments: [self.travelPlace.title!])
+                    self.detailViewLabel.text = String(format: "%@", arguments: [self.travelPlace.title!])
+                    self.detailViewLabel.textColor = UIColor.blackColor()
+                    self.setupDetailView()
             })
         }
+    }
+    
+    func setupDetailView() {
+        let textView = UITextView(frame: CGRectMake(8, 8, 320-8-8, 120))
+        let titleFont = UIFont(name: "AvenirNext-Medium", size: 17)
+        let textFont = UIFont(name: "AvenirNext-Medium", size: 12)
+        let titleString = NSAttributedString(string: self.travelPlace.title!, attributes: [NSFontAttributeName:titleFont!])
+        let textString = NSAttributedString(string: currentTripDictionary[self.travelPlace.title!]!, attributes: [NSFontAttributeName:textFont!])
+        let descString = NSMutableAttributedString()
+        descString.appendAttributedString(titleString)
+        descString.appendAttributedString(NSAttributedString(string: "\n\n", attributes: [NSFontAttributeName:textFont!]))
+        descString.appendAttributedString(textString)
+        textView.attributedText = descString
+//        textView.text = self.travelPlace.title! + "\n\n" + currentTripDictionary[self.travelPlace.title!]!
+        self.detailScrollView .addSubview(textView)
+        
+        // horizontal view
+        let horizontalLine = UIView(frame: CGRectMake(8, textView.frame.size.height + textView.frame.origin.y + 8, 320-8-8, 1))
+        horizontalLine.backgroundColor = UIColor.grayColor()
+        self.detailScrollView .addSubview(horizontalLine)
+        
+        // todo tableview
+        
     }
     
     func showDetail(annotation: MKAnnotation) {
@@ -147,12 +182,15 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func bringDownDetailView() {
-        let newHeight = 62 as CGFloat
-        let heightMoved = newHeight - self.detailView.frame.size.height;
+        let newY = 506 as CGFloat
+        let heightMoved = self.detailView.frame.origin.y - newY;
         if (heightMoved < 0) {
-            UIView.animateWithDuration(0.2) {
-                self.detailView.frame = CGRectMake(0, self.view.frame.size.height - newHeight, self.view.frame.size.width, newHeight)
-            }
+            UIView.animateWithDuration(0.2, animations: {
+                self.detailView.frame = CGRectMake(0, newY, self.detailView.frame.size.width, self.detailView.frame.size.height)
+                }, completion: {
+                    finished in
+                    self.detailScrollView.hidden = true
+            })
         }
     }
     
