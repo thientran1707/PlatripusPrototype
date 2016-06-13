@@ -120,7 +120,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func navigateTo() {
-        NSLog("http://maps.apple.com/?saddr=%@&daddr=%@&dirflg=r");
+       // NSLog("http://maps.apple.com/?saddr=%@&daddr=%@&dirflg=r");
         
     }
     
