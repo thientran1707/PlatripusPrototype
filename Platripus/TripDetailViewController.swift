@@ -24,6 +24,7 @@ class TripDetailViewController: UIViewController {
     
     var titleText: String?
     var titleImage: String?
+    var tripDescription: String?
     var tripLabelArray: [String] = []
     var data: [String: [String]] = [:]
     var booking: [String] = []
@@ -126,5 +127,13 @@ class TripDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      if segue.identifier == "addNewTrip" {
+        let upcomingViewController = segue.destinationViewController as! UpcomingTripsViewController
+        upcomingViewController.imageName.append(titleImage!)
+        upcomingViewController.tripName.append(tripDescription!)
+      }
+    }
 
 }

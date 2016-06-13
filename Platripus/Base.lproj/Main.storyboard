@@ -723,7 +723,7 @@
                     <navigationItem key="navigationItem" title="Itenery" id="an0-Wf-Kab">
                         <barButtonItem key="rightBarButtonItem" title="Add Trip" id="77u-XV-gFW">
                             <connections>
-                                <segue destination="RaP-X2-i0v" kind="push" id="cRG-RW-YxT"/>
+                                <segue destination="RaP-X2-i0v" kind="push" identifier="addNewTrip" id="cRG-RW-YxT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

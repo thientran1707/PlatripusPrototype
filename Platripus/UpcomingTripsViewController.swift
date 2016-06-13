@@ -10,10 +10,23 @@ import UIKit
 
 class UpcomingTripsViewController: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
-
+    
+    var imageName: [String] = [
+      "upcoming1",
+      "upcoming2"
+    ]
+    
+    var tripName: [String] = [
+        "Napa Valley Wine Train, Sterling Vineyards,Castello di Amoroso",
+        "Grand Canyon South Rim, Death Valley"
+    ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Trip name")
+        print(tripName)
+        
         if revealViewController() != nil {
             menuButton.target = revealViewController()
             menuButton.action = "revealToggle:"
@@ -36,36 +49,18 @@ class UpcomingTripsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 2
+        return tripName.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UpcomingTripsViewCell
 
-        // Configure the cell...
-        if indexPath.row == 0 {
-            cell.postImageView.image = UIImage(named: "upcoming1")
-            cell.postTitleLabel.text = "Napa Valley Wine Train, Sterling Vineyards,Castello di Amoroso"
-
-        } else {
-            cell.postImageView.image = UIImage(named: "upcoming2")
-            cell.postTitleLabel.text = "Grand Canyon South Rim, Death Valley"
-            
-        }
+        let row = indexPath.row
+        cell.postImageView.image = UIImage(named: imageName[row])
+        cell.postTitleLabel.text = tripName[row]
 
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
