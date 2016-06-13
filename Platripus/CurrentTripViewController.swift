@@ -82,6 +82,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
         
         // setup full itinerary view
         fullItineraryButton.titleLabel?.lineBreakMode = .ByWordWrapping;
+        fullItineraryButton.addTarget(self, action: "goToFullItinerary", forControlEvents: .TouchUpInside)
         
         // setup detailView
         detailView.frame = CGRectMake(0, 506, 320, 340)
@@ -299,6 +300,12 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         NSLog("error: %@", error);
+    }
+    
+    // MARK navigation
+    func goToFullItinerary() {
+        let fullItineraryVC = FullItineraryViewController()
+        self.navigationController?.pushViewController(fullItineraryVC, animated: true)
     }
 
 }

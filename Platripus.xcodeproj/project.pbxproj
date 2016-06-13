@@ -15,6 +15,7 @@
 		6EDF45731D0E372C0096771E /* TripSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF45721D0E372C0096771E /* TripSelectionTableViewController.swift */; };
 		6EDF45751D0E37470096771E /* TripSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF45741D0E37470096771E /* TripSelectionTableViewCell.swift */; };
 		6EE664741D0A28BA004AC59C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE664731D0A28BA004AC59C /* Extensions.swift */; };
+		B34261D61D0E6C5F00F7CD2C /* FullItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34261D51D0E6C5F00F7CD2C /* FullItineraryViewController.m */; };
 		B37CDA5B1D0CB6DB00B6848B /* TravelPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CDA5A1D0CB6DB00B6848B /* TravelPlaces.swift */; };
 		B37CDA5D1D0CB7F700B6848B /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CDA5C1D0CB7F700B6848B /* MapViewVC.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
@@ -50,6 +51,8 @@
 		6EDF45721D0E372C0096771E /* TripSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSelectionTableViewController.swift; sourceTree = "<group>"; };
 		6EDF45741D0E37470096771E /* TripSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		6EE664731D0A28BA004AC59C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B34261D41D0E6C5F00F7CD2C /* FullItineraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullItineraryViewController.h; sourceTree = "<group>"; };
+		B34261D51D0E6C5F00F7CD2C /* FullItineraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullItineraryViewController.m; sourceTree = "<group>"; };
 		B37CDA5A1D0CB6DB00B6848B /* TravelPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelPlaces.swift; sourceTree = "<group>"; };
 		B37CDA5C1D0CB7F700B6848B /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		F47029F01A7F27DB00E30A3C /* Platripus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platripus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +95,8 @@
 		B37CDA591D0CB6AF00B6848B /* Map Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				B34261D41D0E6C5F00F7CD2C /* FullItineraryViewController.h */,
+				B34261D51D0E6C5F00F7CD2C /* FullItineraryViewController.m */,
 				B37CDA5A1D0CB6DB00B6848B /* TravelPlaces.swift */,
 				B37CDA5C1D0CB7F700B6848B /* MapViewVC.swift */,
 			);
@@ -284,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34261D61D0E6C5F00F7CD2C /* FullItineraryViewController.m in Sources */,
 				6E0D993E1D0A5808006A0841 /* TravelNewsViewController.swift in Sources */,
 				6E0D99441D0A583A006A0841 /* SettingsViewController.swift in Sources */,
 				B37CDA5B1D0CB6DB00B6848B /* TravelPlaces.swift in Sources */,
