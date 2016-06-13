@@ -31,6 +31,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     var travelPlace: TravelPlaces!
 
     var locationTuples: [(textField: UITextField!, mapItem: MKMapItem?)]!
+    var currentLocation: CLLocation!
+    var destinationAnnotation: MKAnnotation!
     
     var currentTripDictionary: [String: String] = ["Golden Gate Park":"Central gathering spot for the hippie generation during the 1967. A nod to that history can be seen today in the daily gatherings at Hippie Hill. Today it is one of the top five most-visited city parks in the United States.",
     ]
@@ -71,6 +73,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
         navigateToButton.layer.cornerRadius = navigateToButton.frame.size.width/2.0;
         navigateToButton.clipsToBounds = true;
 //        navigateToButton.layer.masksToBounds = true;
+        navigateToButton.enabled = false;
         navigateToButton.addTarget(self, action: "navigateTo", forControlEvents: .TouchUpInside);
         
         /** Shadow */
@@ -139,6 +142,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     
     func navigateTo() {
        // NSLog("http://maps.apple.com/?saddr=%@&daddr=%@&dirflg=r");
+        let mapUrl = NSURL(string: String(format: "http://maps.apple.com/maps?saddr=%f,%f&daddr=%f,%f", arguments: [self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude, self.destinationAnnotation.coordinate.latitude, self.destinationAnnotation.coordinate.longitude]))
+        UIApplication.sharedApplication().openURL(mapUrl!);
         
     }
     
@@ -153,6 +158,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
             self.detailScrollView.contentSize = self.detailScrollView.frame.size
             UIView.animateWithDuration(0.2, animations: {
                 self.detailView.frame = CGRectMake(0, newY, self.detailView.frame.size.width, self.detailView.frame.size.height)
+                self.navigateToButton.enabled = true;
                 }, completion: {
                     finished in
                     self.detailViewLabel.text = String(format: "%@", arguments: [self.travelPlace.title!])
@@ -281,6 +287,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     // CLLocationmanager delegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last! as CLLocation
+        
+        self.currentLocation = location;
         
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))

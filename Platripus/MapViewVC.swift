@@ -42,6 +42,7 @@ extension CurrentTripViewController: MKMapViewDelegate {
 //        } else {
 //            pinView.pinTintColor = UIColor.grayColor();
 //        }
+        self.destinationAnnotation = view.annotation!
         showDetail(view.annotation!);
     }
     
