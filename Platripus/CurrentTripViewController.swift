@@ -22,6 +22,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var detailViewLabel: UILabel!
     @IBOutlet weak var detailScrollView: UIScrollView!
+    @IBOutlet weak var fullItineraryButton: UIButton!
     
     var todoTableView: UITableView!
 
@@ -78,6 +79,9 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
         navButtonShadow.layer.shadowOpacity = 0.6;
         navButtonShadow.layer.shadowOffset = CGSize.zero;
         navButtonShadow.layer.shadowRadius = 3.0;
+        
+        // setup full itinerary view
+        fullItineraryButton.titleLabel?.lineBreakMode = .ByWordWrapping;
         
         // setup detailView
         detailView.frame = CGRectMake(0, 506, 320, 340)
@@ -181,10 +185,12 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
         let todoLabel = UILabel(frame: CGRectMake(8, horizontalLine.frame.origin.y + 9, 320-8-8, 20))
         todoLabel.text = "Things to do here:"
         todoLabel.font = titleFont
-        self.todoTableView = UITableView(frame: CGRectMake(8, todoLabel.frame.origin.y + todoLabel.frame.size.height + 8, 320-8-8, 120), style: .Grouped)
+        self.todoTableView = UITableView(frame: CGRectMake(8, todoLabel.frame.origin.y + todoLabel.frame.size.height + 8, 320-8-8, 100), style: .Grouped)
         self.todoTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.todoTableView.delegate = self
         self.todoTableView.dataSource = self
+        self.todoTableView.allowsSelection = false
+        self.todoTableView.backgroundColor = UIColor.whiteColor()
         self.detailScrollView.addSubview(todoLabel)
         self.detailScrollView.addSubview(self.todoTableView)
         // update contentSize
@@ -221,6 +227,18 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 24
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.min
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.min
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
