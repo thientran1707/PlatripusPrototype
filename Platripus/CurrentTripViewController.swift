@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
+class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var menuButton:UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navigateToButton: UIButton!
@@ -22,6 +22,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var detailViewLabel: UILabel!
     @IBOutlet weak var detailScrollView: UIScrollView!
+    
+    var todoTableView: UITableView!
 
     var locationManager: CLLocationManager!
     
@@ -31,6 +33,8 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     
     var currentTripDictionary: [String: String] = ["Golden Gate Park":"Central gathering spot for the hippie generation during the 1967. A nod to that history can be seen today in the daily gatherings at Hippie Hill. Today it is one of the top five most-visited city parks in the United States.",
     ]
+    
+    var thingsToDoDictionary: [String: [String]] = ["Golden Gate Park":["🏛Academy of Sciences", "🏛De Young's Museum", "🌿Conservatory of Flowers", "🌿Lloyed Lake"]]
 
     
     override func viewDidLoad() {
@@ -76,6 +80,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         navButtonShadow.layer.shadowRadius = 3.0;
         
         // setup detailView
+        detailView.frame = CGRectMake(0, 506, 320, 340)
         detailView.layer.shadowColor = UIColor.blackColor().CGColor;
         detailView.layer.shadowOpacity = 0.6;
         detailView.layer.shadowOffset = CGSize.zero;
@@ -154,6 +159,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
     
     func setupDetailView() {
         let textView = UITextView(frame: CGRectMake(8, 8, 320-8-8, 120))
+        textView.editable = false
         let titleFont = UIFont(name: "AvenirNext-Medium", size: 17)
         let textFont = UIFont(name: "AvenirNext-Medium", size: 12)
         let titleString = NSAttributedString(string: self.travelPlace.title!, attributes: [NSFontAttributeName:titleFont!])
@@ -172,7 +178,17 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
         self.detailScrollView .addSubview(horizontalLine)
         
         // todo tableview
-        
+        let todoLabel = UILabel(frame: CGRectMake(8, horizontalLine.frame.origin.y + 9, 320-8-8, 20))
+        todoLabel.text = "Things to do here:"
+        todoLabel.font = titleFont
+        self.todoTableView = UITableView(frame: CGRectMake(8, todoLabel.frame.origin.y + todoLabel.frame.size.height + 8, 320-8-8, 120), style: .Grouped)
+        self.todoTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.todoTableView.delegate = self
+        self.todoTableView.dataSource = self
+        self.detailScrollView.addSubview(todoLabel)
+        self.detailScrollView.addSubview(self.todoTableView)
+        // update contentSize
+        self.detailScrollView.contentSize = CGSizeMake(self.detailScrollView.frame.size.width, self.todoTableView.frame.origin.y + self.todoTableView.frame.size.height + 8)
     }
     
     func showDetail(annotation: MKAnnotation) {
@@ -192,6 +208,27 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate {
                     self.detailScrollView.hidden = true
             })
         }
+    }
+    
+    
+    // MARK uitableview datasource and delegates
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (tableView == self.todoTableView) {
+            return (self.thingsToDoDictionary[self.travelPlace.title!]?.count)!
+        }
+        return 0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+
+        cell.textLabel?.text = self.thingsToDoDictionary[self.travelPlace.title!]![indexPath.row]
+        
+        return cell
     }
     
     // location methods
