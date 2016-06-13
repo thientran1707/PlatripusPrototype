@@ -20,6 +20,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var endDate: UITextField!
     
     @IBOutlet weak var goButton: UIButton!
+
     let locations = ["San Francisco", "Los Angeles", "Las Vegas", "New York"]
     let travellers = ["1 Traveller", "2 Travellers", "3 Travellers", "4 Travellers"]
     let budgets = ["Below $50", "$50- $100", "$100- $200", "$200- $400", "$400- $700", "Above $700"]
@@ -92,7 +93,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         let toolBar3 = UIToolbar()
         toolBar3.barStyle = UIBarStyle.Default
         toolBar3.translucent = true
-        toolBar3.tintColor = UIColor.blueColor()//UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar3.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar3.sizeToFit()
         
         let doneButton3 = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker3")
@@ -107,8 +108,8 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         budget.inputAccessoryView = toolBar3
         
         helloText.userInteractionEnabled = false
-        selectionView.layer.borderWidth = 1
-        selectionView.layer.borderColor = UIColor.grayColor().CGColor
+        //selectionView.layer.borderWidth = 1
+        //selectionView.layer.borderColor = UIColor.grayColor().CGColor
         
         goButton.backgroundColor = UIColor(hex: 0xEC2C43)
         
