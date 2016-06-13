@@ -305,6 +305,7 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     // MARK navigation
     func goToFullItinerary() {
         let fullItineraryVC = FullItineraryViewController()
+        fullItineraryVC.tripTitle = "4 Days Trip in San Francisco"
         self.navigationController?.pushViewController(fullItineraryVC, animated: true)
     }
 

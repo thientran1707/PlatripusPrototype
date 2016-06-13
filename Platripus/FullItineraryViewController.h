@@ -11,5 +11,7 @@
 @interface FullItineraryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSString *tripTitle;
+@property (nonatomic) float totalExpenditure;
 
 @end
