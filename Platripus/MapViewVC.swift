@@ -45,5 +45,5 @@ extension CurrentTripViewController: MKMapViewDelegate {
         self.destinationAnnotation = view.annotation!
         showDetail(view.annotation!);
     }
-    
+        
 }

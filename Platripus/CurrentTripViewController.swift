@@ -34,10 +34,29 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
     var currentLocation: CLLocation!
     var destinationAnnotation: MKAnnotation!
     
-    var currentTripDictionary: [String: String] = ["Golden Gate Park":"Central gathering spot for the hippie generation during the 1967. A nod to that history can be seen today in the daily gatherings at Hippie Hill. Today it is one of the top five most-visited city parks in the United States.",
+    var destinations: [String: CLLocationCoordinate2D] = [
+        "Golden Gate Park": CLLocationCoordinate2D(latitude: 37.769258, longitude: -122.482658),
+        "Golden Gate Bridge" : CLLocationCoordinate2D(latitude: 37.807682, longitude: -122.474910),
+        "Sutro Baths" : CLLocationCoordinate2D(latitude: 37.780127, longitude: -122.513127),
+        "Ocean Beach" : CLLocationCoordinate2D(latitude: 37.772597, longitude: -122.511278),
+        "Cliff House" : CLLocationCoordinate2D(latitude: 37.778508, longitude: -122.514020),
     ]
     
-    var thingsToDoDictionary: [String: [String]] = ["Golden Gate Park":["🏛Academy of Sciences", "🏛De Young's Museum", "🌿Conservatory of Flowers", "🌿Lloyed Lake"]]
+    var currentTripDictionary: [String: String] = [
+        "Golden Gate Park":"Central gathering spot for the hippie generation during the 1967. A nod to that history can be seen today in the daily gatherings at Hippie Hill. Today it is one of the top five most-visited city parks in the United States.",
+        "Golden Gate Bridge" : "The iconic arches of San Francisco, California's Golden Gate Bridge are known the world over as a symbol of California and the San Francisco Bay area. From movies to postcards, the Golden Gate Bridge is an American icon.",
+        "Sutro Baths" : "Large, privately owned public saltwater swimming pool complex. Built in 1896, it was located near the Cliff House, Seal Rock, and Sutro Heights Park. The facility burned down in 1967 and is now in ruins.",
+        "Ocean Beach" : "3.5-mile stretch of white beach with few tourists and no highrises. It's just you and the waves and the seabirds at Ocean Beach, on the westernmost border of San Francisco. Great for strolling and flying kites.",
+        "Cliff House" : "Part of the Sutro Historic Landscape District and is also the crown jewel of the largest urban national park in the United States. It has casual Bistro Restaurant on the main level and the elegant Sutro’s at the Cliff House on the lower level.",
+    ]
+    
+    var thingsToDoDictionary: [String: [String]] = [
+        "Golden Gate Park":["🏛Academy of Sciences", "🏛De Young's Museum", "🌿Conservatory of Flowers", "🌿Lloyed Lake"],
+        "Golden Gate Bridge" : [],
+        "Sutro Baths" : [],
+        "Ocean Beach" : [],
+        "Cliff House" : [],
+    ]
 
     
     override func viewDidLoad() {
@@ -97,11 +116,11 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
         detailScrollView.hidden = true
         
         // prepare tap gesture recognizer to close the detailView
-        let tgr = UITapGestureRecognizer(target: self, action: "bringDownDetailView")
+        let tgr = UITapGestureRecognizer(target: self, action: "bringDownDetailView:")
         mapView.addGestureRecognizer(tgr)
         
-        // set initial location in Honolulu
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+        // set initial location in Block 71
+        let initialLocation = CLLocation(latitude: 37.782263, longitude: -122.392143)
         centerMapOnLocation(initialLocation)
         
         mapView.delegate = self
@@ -110,13 +129,13 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
         // set tuples for map info
 //        locationTuples = [(sourceField: nil), (destinationField1: nil), (destinationField2: nil)]
         
-        // show place on map
-        let place = TravelPlaces(title: "Golden Gate Park",
-            locationName: "Waikiki Gateway Park",
-            discipline: "Sculpture",
-            coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-        
-        mapView.addAnnotation(place)
+        // show places on map
+        for (placeName, coordinates) in self.destinations {
+            let place = TravelPlaces(title: placeName,
+                coordinate: coordinates)
+            
+            mapView.addAnnotation(place)
+        }
         
         // request for map authorization
         self.startStandardUpdates();
@@ -210,7 +229,13 @@ class CurrentTripViewController: UIViewController, CLLocationManagerDelegate, UI
         bringUpDetailView()
     }
     
-    func bringDownDetailView() {
+    func bringDownDetailView(sender: UITapGestureRecognizer) {
+        let tapGesture = sender as UITapGestureRecognizer;
+        
+        let tapPoint = tapGesture.locationInView(self.mapView);
+        let coord = mapView.convertPoint(tapPoint, toCoordinateFromView: mapView)
+        
+        NSLog("World coordinate was longitude %f, latitude %f", coord.longitude, coord.latitude);
         let newY = 506 as CGFloat
         let heightMoved = self.detailView.frame.origin.y - newY;
         if (heightMoved < 0) {
