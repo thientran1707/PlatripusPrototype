@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="48.280000000000001"/>
+            <point key="canvasLocation" x="9" y="95"/>
         </scene>
         <!--Current Trip-->
         <scene sceneID="MMi-W1-KaJ">
@@ -138,7 +138,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="318" id="m7N-Q8-5h6" customClass="UpcomingTripsViewCell" customModule="Platripus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="320" height="318"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="318"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m7N-Q8-5h6" id="uxv-3b-FYp">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="317.5"/>
@@ -863,7 +863,7 @@
         <image name="welcome" width="691" height="609"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zw8-Xd-2Hu"/>
+        <segue reference="AVl-c6-5UF"/>
         <segue reference="cRG-RW-YxT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

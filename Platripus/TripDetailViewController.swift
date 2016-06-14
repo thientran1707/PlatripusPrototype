@@ -9,18 +9,9 @@
 import UIKit
 
 class TripDetailViewController: UIViewController {
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
-    
-    @IBOutlet weak var content1: UIView!
-    @IBOutlet weak var day1: UIView!
-    @IBOutlet weak var day2: UIView!
-    @IBOutlet weak var day3: UIView!
-    @IBOutlet weak var day4: UIView!
-    @IBOutlet weak var bookingView: UIView!
-    
-    @IBOutlet weak var bookButton1: UIButton!
-    @IBOutlet weak var bookButton2: UIButton!
+    /* Constants of DetailTripView*/
+    let recommendataionMessage = "Things you might need"
+    let bookingMessage = "Book Now"
     
     var titleText: String?
     var titleImage: String?
@@ -70,13 +61,12 @@ class TripDetailViewController: UIViewController {
         let recommendationLabel: UILabel = UILabel(frame: CGRect(x: 5, y: screenPoint, width: width - 10, height: 30))
         recommendationLabel.textAlignment = .Center
         recommendationLabel.textColor = UIColor.whiteColor()
-        recommendationLabel.text = "Things you might need"
+        recommendationLabel.text = recommendataionMessage
         recommendationLabel.backgroundColor = UIColor(hex: 0xEC2C43)
         scrollView.addSubview(recommendationLabel)
         screenPoint += 35
         
         for book in booking {
-          print(book)
             let bookLabel: UILabel = UILabel(frame: CGRect(x: 5, y: screenPoint, width: width, height: 30))
             bookLabel.text = book
             bookLabel.textAlignment = .Center
@@ -84,7 +74,7 @@ class TripDetailViewController: UIViewController {
             screenPoint += 35
             
             let bookButton: UIButton = UIButton(frame: CGRect(x: 30, y: screenPoint, width: width - 60, height: 30))
-            bookButton.setTitle("Book Now", forState: .Normal)
+            bookButton.setTitle(bookingMessage, forState: .Normal)
             bookButton.backgroundColor = UIColor(hex: 0xEC2C43)
             scrollView.addSubview(bookButton)
             screenPoint += 35
@@ -118,22 +108,49 @@ class TripDetailViewController: UIViewController {
         return detailHeaderView
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+    // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == "addNewTrip" {
-        let upcomingViewController = segue.destinationViewController as! UpcomingTripsViewController
-        upcomingViewController.imageName.append(titleImage!)
-        upcomingViewController.tripName.append(tripDescription!)
+        
+        var savedImageNameArray: [String] = []
+        var savedtripNameArray: [String] = []
+        var format = NSPropertyListFormat.XMLFormat_v1_0 //format of the property list
+        var plistData:[String:AnyObject] = [:]  //our data
+
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+
+        let documentsDirectory = paths.objectAtIndex(0) as! NSString
+        let plistPath = documentsDirectory.stringByAppendingPathComponent("trips.plist") //the path of the data
+        
+        let plistXML = NSFileManager.defaultManager().contentsAtPath(plistPath)! //the data in XML format
+
+        do{ //convert the data to a dictionary and handle errors.
+            plistData = try NSPropertyListSerialization.propertyListWithData(plistXML,options: .MutableContainersAndLeaves,format: &format)as! [String:AnyObject]
+            
+            let nameArray = plistData["tripNames"] as! [String]
+            let imageArray = plistData["tripImages"] as! [String]
+
+            savedImageNameArray = imageArray
+            savedtripNameArray = nameArray
+        }
+        catch { // error condition
+            print("Error reading plist: \(error), format: \(format)")
+        }
+
+        let path = documentsDirectory.stringByAppendingPathComponent("trips.plist")
+
+
+        savedtripNameArray.append(tripDescription!)
+        savedImageNameArray.append(titleImage!)
+        let data: NSDictionary = [
+            "tripNames" : savedtripNameArray,
+            "tripImages": savedImageNameArray
+        ]
+        
+        data.writeToFile(path, atomically: true)
       }
     }
+
 
 }

@@ -108,8 +108,6 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         budget.inputAccessoryView = toolBar3
         
         helloText.userInteractionEnabled = false
-        //selectionView.layer.borderWidth = 1
-        //selectionView.layer.borderColor = UIColor.grayColor().CGColor
         
         goButton.backgroundColor = UIColor(hex: 0xEC2C43)
         
