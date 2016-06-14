@@ -9,10 +9,17 @@
 import UIKit
 
 class TripSelectionTableViewCell: UITableViewCell {
-    @IBOutlet weak var postImageView: UIImageView!
+    //@IBOutlet weak var postImageView: UIImageView!
         
-    @IBOutlet weak var postTitleLabel: UILabel!
+    //@IBOutlet weak var postTitleLabel: UILabel!
 
+    //@IBOutlet weak var price: UILabel!
+    
+    
+    @IBOutlet weak var postImageView: UIImageView!
+    
+    @IBOutlet weak var postTitleLabel: UILabel!
+    
     @IBOutlet weak var price: UILabel!
     
     override func awakeFromNib() {
