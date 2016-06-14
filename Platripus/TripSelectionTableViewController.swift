@@ -173,6 +173,9 @@ class TripSelectionTableViewController: UITableViewController {
     ]    
     
     override func viewDidLoad() {
+        //self.automaticallyAdjustsScrollViewInsets = false
+        //self.tableView.contentInset = UIEdgeInsetsMake(0, 10, 0, 0)
+        self.tableView.frame.origin.y = self.tableView.frame.origin.y + 200
         super.viewDidLoad()
     }
 

@@ -11,6 +11,7 @@ import UIKit
 class UpcomingTripsViewController: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
 
+    
     var imageNameArray: [String] = []
     
     var tripNameArray: [String] = []
