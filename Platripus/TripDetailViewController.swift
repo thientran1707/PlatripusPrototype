@@ -151,6 +151,30 @@ class TripDetailViewController: UIViewController {
         data.writeToFile(path, atomically: true)
       }
     }
+    
+    // MARK: - Table view data source
+    
+    /*override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // Return the number of sections.
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Return the number of rows in the section.
+        return tripNameArray.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("tripCell", forIndexPath: indexPath) as! TripSelectionTableViewCell
+        
+        let row = indexPath.row
+        cell.postImageView.image = UIImage(named: tripTitleImageArray[row])
+        cell.postTitleLabel.text = tripNameArray[row]
+        cell.price.text = tripPriceArray[row]
+        
+        return cell
+    }*/
 
 
 }
