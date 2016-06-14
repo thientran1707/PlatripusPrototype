@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="48.280000000000001"/>
+            <point key="canvasLocation" x="9" y="95"/>
         </scene>
         <!--Current Trip-->
         <scene sceneID="MMi-W1-KaJ">
@@ -901,7 +901,7 @@
         <image name="welcome" width="691" height="609"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zw8-Xd-2Hu"/>
+        <segue reference="AVl-c6-5UF"/>
         <segue reference="cRG-RW-YxT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

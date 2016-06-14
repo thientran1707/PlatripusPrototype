@@ -10,28 +10,59 @@ import UIKit
 
 class UpcomingTripsViewController: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
+
+    var imageNameArray: [String] = []
     
-    var imageName: [String] = [
-      "upcoming1",
-      "upcoming2"
-    ]
-    
-    var tripName: [String] = [
-        "Napa Valley Wine Train, Sterling Vineyards,Castello di Amoroso",
-        "Grand Canyon South Rim, Death Valley"
-    ]
-    
+    var tripNameArray: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Trip name")
-        print(tripName)
-        
         if revealViewController() != nil {
             menuButton.target = revealViewController()
             menuButton.action = "revealToggle:"
 
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        readPropertyList()
+    }
+    
+    func readPropertyList(){
+        var format = NSPropertyListFormat.XMLFormat_v1_0 //format of the property list
+        var plistData:[String:AnyObject] = [:]  //our data
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        print("Paths")
+        print(paths)
+        let documentsDirectory = paths[0] as! NSString
+        let plistPath = documentsDirectory.stringByAppendingPathComponent("trips.plist")
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(plistPath) {
+            // copy form bundle to resources
+            let plistPathInBundle = NSBundle.mainBundle().pathForResource("trips", ofType: "plist")!
+            
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(plistPathInBundle, toPath: plistPath)
+                print("plist copied")
+            } catch {
+                print("error copying plist!")
+            }
+        }
+        else{
+            print("plst exists \(plistPath)")
+        }
+        
+        let plistXML = NSFileManager.defaultManager().contentsAtPath(plistPath)! //the data in XML format
+        do { //convert the data to a dictionary and handle errors.
+            plistData = try NSPropertyListSerialization.propertyListWithData(plistXML,options: .MutableContainersAndLeaves,format: &format) as! [String:AnyObject]
+            
+            let nameArray = plistData["tripNames"] as! [String]
+            let imageArray = plistData["tripImages"] as! [String]
+            tripNameArray = nameArray
+            imageNameArray = imageArray
+        }
+        catch{ // error condition
+            print("Error reading plist: \(error), format: \(format)")
         }
     }
 
@@ -49,7 +80,7 @@ class UpcomingTripsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return tripName.count
+        return tripNameArray.count
     }
 
     
@@ -57,10 +88,40 @@ class UpcomingTripsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UpcomingTripsViewCell
 
         let row = indexPath.row
-        cell.postImageView.image = UIImage(named: imageName[row])
-        cell.postTitleLabel.text = tripName[row]
+        cell.postImageView.image = UIImage(named: imageNameArray[row])
+        cell.postTitleLabel.text = tripNameArray[row]
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            print("Delete")
+            let index = indexPath.row
+            print("Index")
+            print(index)
+            print(imageNameArray)
+            print(tripNameArray)
+            imageNameArray.removeAtIndex(index)
+            tripNameArray.removeAtIndex(index)
+            
+            tableView.reloadData()
+            
+            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+            //print("AFter paths")
+            let documentsDirectory = paths.objectAtIndex(0) as! NSString
+            let path = documentsDirectory.stringByAppendingPathComponent("trips.plist")
+            let data: NSDictionary = [
+                "tripNames" : tripNameArray,
+                "tripImages": imageNameArray
+            ]
+            
+            data.writeToFile(path, atomically: true)
+        }
     }
 
 }

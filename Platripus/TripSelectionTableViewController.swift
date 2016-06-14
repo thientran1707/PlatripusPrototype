@@ -14,13 +14,6 @@ class TripSelectionTableViewController: UITableViewController {
     @IBOutlet var tripSelectionTableView: UITableView!
     
     /* Data to pass to TripDetailViewController when cell is clicked */
-    let tripDescription: [String] = [
-      "Trip 1",
-      "Trip 2",
-      "Trip 3",
-      "Trip 4"
-    ]
-    
     let tripTitleArray: [String] = [
       "3 days trip in San Francisco",
       "4 days trips in San Francisco",
@@ -217,12 +210,12 @@ class TripSelectionTableViewController: UITableViewController {
         if let cell = sender as? UITableViewCell {
             let index = tripSelectionTableView.indexPathForCell(cell)!.row
             if segue.identifier == "viewDetailTrip" {
-                print(index)
+                //print(index)
                 let detailViewController = segue.destinationViewController as! TripDetailViewController
                 
                 detailViewController.titleText = tripTitleArray[index]
                 detailViewController.titleImage = tripTitleImageArray[index]
-                detailViewController.tripDescription = tripDescription[index]
+                detailViewController.tripDescription = tripNameArray[index]
                 detailViewController.tripLabelArray = tripLabelArray[index]//tripLabel
                 detailViewController.data = dataArray[index]//data
                 detailViewController.booking = bookingArray[index]//booking

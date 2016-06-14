@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E083AB51D0F792B00FE6592 /* trips.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E083AB41D0F792A00FE6592 /* trips.plist */; };
 		6E0D993C1D0A57ED006A0841 /* PastTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D993B1D0A57ED006A0841 /* PastTripViewController.swift */; };
 		6E0D993E1D0A5808006A0841 /* TravelNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D993D1D0A5808006A0841 /* TravelNewsViewController.swift */; };
 		6E0D99401D0A581A006A0841 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D993F1D0A581A006A0841 /* HomeViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E083AB41D0F792A00FE6592 /* trips.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trips.plist; sourceTree = "<group>"; };
 		6E0D993B1D0A57ED006A0841 /* PastTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastTripViewController.swift; sourceTree = "<group>"; };
 		6E0D993D1D0A5808006A0841 /* TravelNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelNewsViewController.swift; sourceTree = "<group>"; };
 		6E0D993F1D0A581A006A0841 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				6EDF45721D0E372C0096771E /* TripSelectionTableViewController.swift */,
 				6EDF45741D0E37470096771E /* TripSelectionTableViewCell.swift */,
 				6EDF45761D0E6B210096771E /* TripDetailViewController.swift */,
+				6E083AB41D0F792A00FE6592 /* trips.plist */,
 			);
 			path = Platripus;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E083AB51D0F792B00FE6592 /* trips.plist in Resources */,
 				F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */,
 				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
