@@ -9,19 +9,53 @@
 
 import UIKit
 
-class UpcomingDetailViewController: UIViewController/*, UITableViewDataSource, UITableViewDelegate*/ {
+class UpcomingDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     /* Constants of DetailTripView*/
-    let recommendataionMessage: String = "Things you might need"
-    let bookingMessage: String = "Book Now"
+    let recommendataionMessage: String = "Items you might need with your trip"
+    let bookingMessage: String = "Buy Now"
     let headerHeight: CGFloat = CGFloat(50.0)
     let customCellHeight: CGFloat = CGFloat(250)
     
-    var titleText: String?
+    /*var titleText: String?
     var titleImage: String?
     var tripDescription: String?
     var tripLabelArray: [String] = []
     var data: [String: [String]] = [:]
-    var booking: [String] = []
+    var booking: [String] = []*/
+    
+    var titleText: String = "3 days trip in San Francisco"
+    var titleImage: String = "trip1"
+    var tripLabelArray: [String] = ["Day 1: Golden Gate Bridge", "Day 2: San Francisco", "Day 3: Yosemite"]
+    
+    var data: [String: [String]] =
+        [
+            "Day 1: Golden Gate Bridge":[
+                "0900 - 1100 : 🌿 Golden Gate Park",
+                "1200 - 1300 : 🎢 Golden Gate Bridge",
+                "1300 - 1500 : 🏃 Sutro Baths",
+                "1500 - 1700 : 🌅 Ocean Beach",
+                "1900 - 2000 : 🍽 Cliff House"
+            ],
+            "Day 2: San Francisco": [
+                "0900 - 1100 : 🎢 Lombard Street",
+                "1200 - 1300 : 👜 Fisherman's Wharf",
+                "1300 - 1500 : 🌿 Golden Gate Park",
+                "1500 - 1700 : 🏛 Academy of Sciences",
+                "1900 - 2000 : 🖼 Painted Ladies"
+            ],
+            "Day 3: Yosemite": [
+                "0900 - 1100 : 🖼 Tunnel View",
+                "1200 - 1300 : 🌿 Bridalveil Falls",
+                "1300 - 1500 : 🏃 Yosemite Falls",
+                "1500 - 1700 : 🏃 Vernal Falls Trail",
+                "1900 - 2000 : 🖼 Valley View"
+            ]
+    ]
+    
+    var itemName = ["Thermal Travel Mug ", "Travel Backpacks"]
+    var itemImage = ["item1", "item2"]
+    
+    var booking: [String] = ["Flight to San Francisco", "3 days accommodation"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +68,13 @@ class UpcomingDetailViewController: UIViewController/*, UITableViewDataSource, U
         let topBar = self.navigationController!.navigationBar.frame.height
         //print(topBar)
         
-        let tableView: UITableView = UITableView(frame: CGRect(x: 5, y: 70, width: width - 10, height: height - topBar), style: .Grouped)
+        let tableView: UITableView = UITableView(frame: CGRect(x: 5, y: topBar, width: width - 10, height: height - topBar), style: .Grouped)
         tableView.backgroundColor = UIColor.whiteColor()
-        //tableView.dataSource = self
-        //tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "detailTripActivityCell")
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.allowsSelection = false
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "upcomingTripActivityCell")
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 400, 0)
         
         view.addSubview(tableView)
         
@@ -107,7 +143,7 @@ class UpcomingDetailViewController: UIViewController/*, UITableViewDataSource, U
     
     // MARK: - Table view data source
     
-    /*func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
         return data.count + 2
     }
@@ -123,7 +159,7 @@ class UpcomingDetailViewController: UIViewController/*, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tripActivityCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("upcomingTripActivityCell", forIndexPath: indexPath)
         let section = indexPath.section
         let row = indexPath.row
         
@@ -164,7 +200,7 @@ class UpcomingDetailViewController: UIViewController/*, UITableViewDataSource, U
             label.text = titleText
             label.font = UIFont(name:"Avenir", size: 20)
             
-            let image : UIImage = UIImage(named: titleImage!)!
+            let image : UIImage = UIImage(named: titleImage)!
             let imageView: UIImageView = UIImageView(image: image)
             imageView.frame = CGRect(x: 0, y: 30, width: width, height: 220)
             
@@ -181,23 +217,32 @@ class UpcomingDetailViewController: UIViewController/*, UITableViewDataSource, U
             headerView.addSubview(recommendationLabel)
             
             var screenPoint = recommendationLabel.frame.size.height + 5
-            
-            for book in booking {
-                let bookLabel: UILabel = UILabel(frame: CGRect(x: 5, y: screenPoint, width: width, height: 30))
-                bookLabel.text = book
-                bookLabel.textAlignment = .Center
-                headerView.addSubview(bookLabel)
-                screenPoint += 35
+            //let itemsNumber = itemName.count - 1
+            for (index, item) in itemName.enumerate() {
+                print("Index")
+                print(index)
+                let image: UIImage = UIImage(named: itemImage[index])!
+                let imageView: UIImageView = UIImageView(image: image)
+                imageView.frame = CGRect(x: 5, y: screenPoint, width: width - 10, height: 200)
+                headerView.addSubview(imageView)
+                screenPoint += 205
                 
-                let bookButton: UIButton = UIButton(frame: CGRect(x: 30, y: screenPoint, width: width - 60, height: 30))
+                let bookLabel: UILabel = UILabel(frame: CGRect(x: 5, y: screenPoint, width: (width - 10) * 0.6, height: 35))
+                bookLabel.text = item
+                bookLabel.font = UIFont(name:"Avenir", size: 18)
+                bookLabel.textAlignment = .Left
+                headerView.addSubview(bookLabel)
+                
+                let bookButton: UIButton = UIButton(frame: CGRect(x: 10 + bookLabel.frame.size.width, y: screenPoint, width: width - 20 - bookLabel.frame.size.width, height: 35))
                 bookButton.setTitle(bookingMessage, forState: .Normal)
+                bookButton.titleLabel!.font = UIFont(name: "Avenir", size: 20)
                 bookButton.backgroundColor = UIColor(hex: 0xEC2C43)
                 headerView.addSubview(bookButton)
-                screenPoint += 35
+                screenPoint += 75
             }
             
             // update height of headerView
-            headerView.frame.size.height = screenPoint
+            headerView.frame.size.height = screenPoint + 20
         } else {
             headerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: headerHeight))
             headerView.backgroundColor = UIColor(hex: 0xEC2C43)
@@ -210,20 +255,6 @@ class UpcomingDetailViewController: UIViewController/*, UITableViewDataSource, U
         
         return headerView
     }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let section = indexPath.section
-            let row = indexPath.row
-            
-            let tripName = tripLabelArray[section - 1]
-            var tripData = data[tripName]!
-            
-            tripData.removeAtIndex(row)
-            data[tripName] = tripData
-            tableView.reloadData()
-        }
-    }*/
     
 }
 

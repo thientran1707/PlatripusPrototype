@@ -31,13 +31,13 @@ class TripDetailViewController: UIViewController, UITableViewDataSource, UITable
         let height = screenSize.height
         
         let topBar = self.navigationController!.navigationBar.frame.height
-        //print(topBar)
-
+        print(topBar)
         let tableView: UITableView = UITableView(frame: CGRect(x: 5, y: 70, width: width - 10, height: height - topBar), style: .Grouped)
         tableView.backgroundColor = UIColor.whiteColor()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "tripActivityCell")
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, topBar, 0)
         
         view.addSubview(tableView)
         
@@ -257,7 +257,7 @@ class TripDetailViewController: UIViewController, UITableViewDataSource, UITable
             }
             
             // update height of headerView
-            headerView.frame.size.height = screenPoint
+            headerView.frame.size.height = screenPoint + 35
         } else {
             headerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: headerHeight))
             headerView.backgroundColor = UIColor(hex: 0xEC2C43)
@@ -281,7 +281,6 @@ class TripDetailViewController: UIViewController, UITableViewDataSource, UITable
             
             tripData.removeAtIndex(row)
             data[tripName] = tripData
-//            tableView.reloadData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
         }
     }

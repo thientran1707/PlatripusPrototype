@@ -41,7 +41,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         let toolBar1 = UIToolbar()
         toolBar1.barStyle = UIBarStyle.Default
         toolBar1.translucent = true
-        toolBar1.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar1.tintColor = UIColor(hex: 0xEC2C43)//UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar1.sizeToFit()
         
         let doneButton1 = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker1")
@@ -66,7 +66,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         let toolBar2 = UIToolbar()
         toolBar2.barStyle = UIBarStyle.Default
         toolBar2.translucent = true
-        toolBar2.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar2.tintColor = UIColor(hex: 0xEC2C43)//UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar2.sizeToFit()
         
         let doneButton2 = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker2")
@@ -93,7 +93,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         let toolBar3 = UIToolbar()
         toolBar3.barStyle = UIBarStyle.Default
         toolBar3.translucent = true
-        toolBar3.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar3.tintColor = UIColor(hex: 0xEC2C43)//UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar3.sizeToFit()
         
         let doneButton3 = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker3")
@@ -187,7 +187,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
         toolBar.translucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.tintColor = UIColor(hex: 0xEC2C43)//UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker4")
@@ -227,7 +227,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
         toolBar.translucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.tintColor = UIColor(hex: 0xEC2C43)//UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker5")
