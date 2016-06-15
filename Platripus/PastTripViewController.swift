@@ -8,9 +8,16 @@
 
 import UIKit
 
-class PastTripViewController: UIViewController {
+class PastTripTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    var tripName = [
+      "Napa Valley Wine Train, Sterling Vineyards",
+      "Grand Canyon South Rim, Death Valley"
+    ]
+    
+    var tripImage = ["upcoming1", "upcoming2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,4 +33,28 @@ class PastTripViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // Return the number of sections.
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Return the number of rows in the section.
+        return tripName.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! PastTripCell
+        
+        let row = indexPath.row
+        cell.tripImage.image = UIImage(named: tripImage[row])
+        cell.tripName.text = tripName[row]
+        
+        return cell
+    }
+
 }
