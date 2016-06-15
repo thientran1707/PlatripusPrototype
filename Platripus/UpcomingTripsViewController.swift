@@ -110,7 +110,8 @@ class UpcomingTripsViewController: UITableViewController {
             imageNameArray.removeAtIndex(index)
             tripNameArray.removeAtIndex(index)
             
-            tableView.reloadData()
+//            tableView.reloadData()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
             
             let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
             //print("AFter paths")

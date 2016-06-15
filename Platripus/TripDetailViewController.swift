@@ -281,7 +281,8 @@ class TripDetailViewController: UIViewController, UITableViewDataSource, UITable
             
             tripData.removeAtIndex(row)
             data[tripName] = tripData
-            tableView.reloadData()
+//            tableView.reloadData()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
         }
     }
 
