@@ -110,6 +110,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         helloText.userInteractionEnabled = false
         
         goButton.backgroundColor = UIColor(hex: 0xEC2C43)
+        goButton.layer.cornerRadius = 3
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()

@@ -19,7 +19,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-screen" id="39K-fW-1bp">
-                    <rect key="frame" x="29" y="147" width="271" height="273"/>
+                    <rect key="frame" x="0.0" y="63" width="320" height="327"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
