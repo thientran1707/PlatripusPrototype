@@ -31,7 +31,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         
         /* Code for location picker */
         let locationPicker: UIPickerView
-        locationPicker = UIPickerView(frame: CGRectMake(0, 100, view.frame.width, 300))
+        locationPicker = UIPickerView(frame: CGRectMake(0, 250, view.frame.width, 200))
         locationPicker.backgroundColor = .whiteColor()
         locationPicker.tag = 1
         locationPicker.delegate = self
@@ -56,7 +56,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         
         /* Code for travellers picker */
         let travellerPicker: UIPickerView
-        travellerPicker = UIPickerView(frame: CGRectMake(0, 100, view.frame.width, 300))
+        travellerPicker = UIPickerView(frame: CGRectMake(0, 250, view.frame.width, 200))
         travellerPicker.backgroundColor = .whiteColor()
         travellerPicker.tag = 2
         travellerPicker.delegate = self
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
         
         /* Code for budget picker */
         let budgetPicker: UIPickerView
-        budgetPicker = UIPickerView(frame: CGRectMake(0, 100, view.frame.width, 300))
+        budgetPicker = UIPickerView(frame: CGRectMake(0, 250, view.frame.width, 200))
         budgetPicker.backgroundColor = .whiteColor()
         budgetPicker.tag = 3
         budgetPicker.delegate = self
@@ -179,7 +179,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
     }
 
     @IBAction func startDate(sender: UITextField) {
-        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 100, view.frame.width, 300))
+        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 250, view.frame.width, 200))
         datePickerView.backgroundColor = .whiteColor()
         
         datePickerView.datePickerMode = UIDatePickerMode.Date
@@ -219,7 +219,7 @@ class HomeViewController: UIViewController,UIPickerViewDataSource, UIPickerViewD
     }
     
     @IBAction func endDate(sender: UITextField) {
-        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 100, view.frame.width, 300))
+        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 250, view.frame.width, 200))
         datePickerView.backgroundColor = .whiteColor()
         
         datePickerView.datePickerMode = UIDatePickerMode.Date
