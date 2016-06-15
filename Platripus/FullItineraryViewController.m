@@ -87,7 +87,8 @@
     self.totalExpenditureLabel.textAlignment = NSTextAlignmentCenter;
     self.totalExpenditureLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:17.0];
     
-    self.updateExpenditureButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.totalExpenditureLabel.frame.size.height + self.totalExpenditureLabel.frame.origin.y + 16, 220, 30)];
+    self.updateExpenditureButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.updateExpenditureButton setFrame:CGRectMake(0, self.totalExpenditureLabel.frame.size.height + self.totalExpenditureLabel.frame.origin.y + 16, 220, 30)];
     self.updateExpenditureButton.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:44.0/255.0 blue:67.0/255.0 alpha:1.0];
     [self.updateExpenditureButton setTitle:@"Record New Expenditure" forState:UIControlStateNormal];
     CGPoint centerPoint = self.view.center;
