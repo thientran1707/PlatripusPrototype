@@ -40,61 +40,6 @@ class TripDetailViewController: UIViewController, UITableViewDataSource, UITable
         tableView.contentInset = UIEdgeInsetsMake(0, 0, topBar, 0)
         
         view.addSubview(tableView)
-        
-        /*let scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-
-        let headerView = createTripDetailHeaderView()
-        scrollView.addSubview(headerView)
-        var screenPoint = headerView.frame.size.height + 70
-        
-        // add the list of trip days
-        
-        for tripTitle in tripLabelArray {
-            let label = UILabel(frame: CGRectMake(5, screenPoint , width - 10, 40))
-            
-            label.backgroundColor = UIColor(hex: 0xEC2C43)
-            label.textAlignment = .Center
-            label.textColor = UIColor.whiteColor()
-            label.text = tripTitle
-            scrollView.addSubview(label)
-            screenPoint += label.frame.size.height
-            
-            let value = data[tripTitle]!
-            for tripText in value {
-                let content = UILabel(frame: CGRectMake(10, screenPoint , width - 20, 25))
-                content.textAlignment = .Left
-                content.text = tripText
-                screenPoint += 30
-                scrollView.addSubview(content)
-            }
-            
-            screenPoint += 10
-        }
-
-        let recommendationLabel: UILabel = UILabel(frame: CGRect(x: 5, y: screenPoint, width: width - 10, height: 30))
-        recommendationLabel.textAlignment = .Center
-        recommendationLabel.textColor = UIColor.whiteColor()
-        recommendationLabel.text = recommendataionMessage
-        recommendationLabel.backgroundColor = UIColor(hex: 0xEC2C43)
-        scrollView.addSubview(recommendationLabel)
-        screenPoint += 35
-        
-        for book in booking {
-            let bookLabel: UILabel = UILabel(frame: CGRect(x: 5, y: screenPoint, width: width, height: 30))
-            bookLabel.text = book
-            bookLabel.textAlignment = .Center
-            scrollView.addSubview(bookLabel)
-            screenPoint += 35
-            
-            let bookButton: UIButton = UIButton(frame: CGRect(x: 30, y: screenPoint, width: width - 60, height: 30))
-            bookButton.setTitle(bookingMessage, forState: .Normal)
-            bookButton.backgroundColor = UIColor(hex: 0xEC2C43)
-            scrollView.addSubview(bookButton)
-            screenPoint += 35
-        }
-
-        scrollView.contentSize = CGSizeMake(width, screenPoint)
-        view.addSubview(scrollView)*/
         // Do any additional setup after loading the view.
     }
 
@@ -132,9 +77,25 @@ class TripDetailViewController: UIViewController, UITableViewDataSource, UITable
         var plistData:[String:AnyObject] = [:]  //our data
 
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-
-        let documentsDirectory = paths.objectAtIndex(0) as! NSString
-        let plistPath = documentsDirectory.stringByAppendingPathComponent("trips.plist") //the path of the data
+        print("Paths")
+        print(paths)
+        let documentsDirectory = paths[0] as! NSString
+        let plistPath = documentsDirectory.stringByAppendingPathComponent("trips.plist")
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(plistPath) {
+            // copy form bundle to resources
+            let plistPathInBundle = NSBundle.mainBundle().pathForResource("trips", ofType: "plist")!
+            
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(plistPathInBundle, toPath: plistPath)
+                print("plist copied")
+            } catch {
+                print("error copying plist!")
+            }
+        }
+        else{
+            print("plst exists \(plistPath)")
+        }
         
         let plistXML = NSFileManager.defaultManager().contentsAtPath(plistPath)! //the data in XML format
 
@@ -147,6 +108,7 @@ class TripDetailViewController: UIViewController, UITableViewDataSource, UITable
             savedImageNameArray = imageArray
             savedtripNameArray = nameArray
         }
+            
         catch { // error condition
             print("Error reading plist: \(error), format: \(format)")
         }
